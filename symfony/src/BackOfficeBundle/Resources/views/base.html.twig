@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{% block title %}{% endblock %}</title>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/x-icon" href="{{ asset('.design/img/favicon.ico') }}" />
+
+		<link rel="stylesheet/less" type="text/css" media="all" href="{{ asset('./css/style.css') }}" />
+		{% block styles %}{% endblock %}
+
+		{% block scripts %}{% endblock %}
+
+		{% block head %}{% endblock %}
+	</head>
+	<body>
+		<header>
+			<div>
+				<a href="{{ path('back_office_homepage') }}">Home</a>
+				<a href="{{ path('back_office_user_list') }}">Users</a>
+				<a href="{{ path('back_office_service_list') }}">Services</a>
+				<a href="{{ path('back_office_societe_list') }}">Societes</a>
+			</div>
+			<div>{% block header %}{% endblock %}</div>
+		</header>
+		<main>{% block body %}{% endblock %}</main>
+		<footer>{% block footer %}{% endblock %}</footer>
+	</body>
+</html>

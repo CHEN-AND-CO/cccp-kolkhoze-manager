@@ -1,0 +1,51 @@
+back_office_homepage:
+    path:     /
+    defaults: { _controller: BackOfficeBundle:Default:index }
+
+back_office_user_create:
+    path:     /user/add/
+    defaults: { _controller: BackOfficeBundle:User:Add }
+
+back_office_user_list:
+    path:     /user/list/
+    defaults: { _controller: BackOfficeBundle:User:List }
+
+back_office_user_update:
+    path:     /user/edit/{user}
+    defaults: { _controller: BackOfficeBundle:User:Edit }
+
+back_office_user_delete:
+    path:     /user/delete/{user}
+    defaults: { _controller: BackOfficeBundle:User:Delete }
+
+back_office_service_create:
+    path:     /service/add/
+    defaults: { _controller: BackOfficeBundle:Service:Add }
+
+back_office_service_list:
+    path:     /service/list/
+    defaults: { _controller: BackOfficeBundle:Service:List }
+
+back_office_service_update:
+    path:     /service/edit/{service}
+    defaults: { _controller: BackOfficeBundle:Service:Edit }
+
+back_office_service_delete:
+    path:     /service/delete/{service}
+    defaults: { _controller: BackOfficeBundle:Service:Delete }
+
+back_office_societe_create:
+    path:     /societe/add/
+    defaults: { _controller: BackOfficeBundle:Societe:Add }
+
+back_office_societe_list:
+    path:     /societe/list/
+    defaults: { _controller: BackOfficeBundle:Societe:List }
+
+back_office_societe_update:
+    path:     /societe/edit/{societe}
+    defaults: { _controller: BackOfficeBundle:Societe:Edit }
+
+back_office_societe_delete:
+    path:     /societe/delete/{societe}
+    defaults: { _controller: BackOfficeBundle:Societe:Delete }

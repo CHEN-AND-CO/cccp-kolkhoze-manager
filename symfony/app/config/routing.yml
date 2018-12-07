@@ -1,3 +1,15 @@
+web_service:
+    resource: "@WebServiceBundle/Resources/config/routing.yml"
+    prefix:   /api/
+
+back_office:
+    resource: "@BackOfficeBundle/Resources/config/routing.yml"
+    prefix:   /admindep/
+
+front_office:
+    resource: "@FrontOfficeBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

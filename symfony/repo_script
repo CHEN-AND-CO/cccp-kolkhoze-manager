@@ -1,0 +1,16 @@
+#!/bin/bash
+
+file="filelist.txt"
+
+ls ./src/${BUNDLE}Bundle/Entity/ > $file
+
+for f in `cat $file`; do
+	FILE="./src/${BUNDLE}Bundle/Entity/$f"
+	NAME=`cut -d'.' -f1 $FILE`;
+	cat $FILE;
+	echo $NAME;
+	sed -i "s/ORM\\\\Entity/ORM\\\\Entity(repositoryClass=\"${BUNDLE}\\\\Repository\\\\${NAME}Repository\")/g" "$FILE";
+	cat $FILE;
+done
+
+rm -rf $file

@@ -9,7 +9,8 @@ CONSOLE = $(PHP) bin/console
 #
 #	Folders
 #
-
+BASES = ~/Bureau/Web/Bases/Symfony
+TEMPLATES = $(BASES)/templates
 
 #
 #	Needed files
@@ -19,6 +20,7 @@ CONSOLE = $(PHP) bin/console
 #
 #	Output software name
 #
+ACTDIR = $(shell basename $(CURDIR))
 
 #
 #	Flags
@@ -44,7 +46,7 @@ all:
 #
 #	Implicit rules
 #
-.PHONY: help clearCache list view bundle controller entity form
+.PHONY: help clearCache list view bundle controller entity form server fromDatabase
 
 #verif:
 #ifndef ARG
@@ -61,6 +63,21 @@ list:
 clearCache:
 	sudo $(CONSOLE) cache:clear
 	sudo chmod -R 777 var
+
+view:
+ifndef BUNDLE
+	@echo "Veuillez préciser le Bundle avec BUNDLE="
+	exit 1
+else
+ifndef PAGE
+	@echo "Veuillez préciser le nom de la vue avec PAGE="
+	exit 1
+else
+	mkdir -p src/$(BUNDLE)Bundle/Resources/views/
+	cp $(TEMPLATES)/page.html.twig src/$(BUNDLE)Bundle/Resources/views/$(PAGE).html.twig
+	make clearCache
+endif
+endif
 
 bundle:
 	$(CONSOLE) generate:bundle
@@ -87,5 +104,16 @@ else
 	$(CONSOLE) doctrine:generate:form $(BUNDLE)Bundle:$(ENTITY)
 endif
 endif
+
+fromDatabase:
+ifndef BUNDLE
+	@echo "Veuillez préciser le Bundle à utiliser avec BUNDLE="
+	exit 1
+else
+	$(CONSOLE) doctrine:mapping:import --force $(BUNDLE)Bundle annotation
+endif
+
+server:
+	$(CONSOLE) server:run
 
 
