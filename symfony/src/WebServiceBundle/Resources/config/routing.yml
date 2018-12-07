@@ -1,0 +1,15 @@
+web_service_homepage:
+    path:     /
+    defaults: { _controller: WebServiceBundle:Default:index }
+
+web_service_getdep:
+    path:     /getdep/
+    defaults: { _controller: WebServiceBundle:Default:getdepApi }
+
+web_service_getdep_user:
+    path:     /getdep/{user}
+    defaults: { _controller: WebServiceBundle:Default:getdepUserApi }
+
+web_service_getdep_user_date:
+    path:     /getdep/{user}/{year}/{month}
+    defaults: { _controller: WebServiceBundle:Default:getdepUserDateApi }

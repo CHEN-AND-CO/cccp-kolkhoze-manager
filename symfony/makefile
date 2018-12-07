@@ -44,7 +44,7 @@ all:
 #
 #	Implicit rules
 #
-.PHONY: help clearCache list view bundle controller entity form
+.PHONY: help clearCache list view bundle controller entity form server fromDatabase repository
 
 #verif:
 #ifndef ARG
@@ -88,4 +88,23 @@ else
 endif
 endif
 
+fromDatabase:
+ifndef BUNDLE
+	@echo "Veuillez préciser l'entité à utiliser avec BUNDLE="
+	exit 1
+else
+	$(CONSOLE) doctrine:mapping:convert --from-database annotation ./src/$(BUNDLE)Bundle/Entity
+	./repo_script BUNDLE=$(BUNDLE)
+endif
+
+repository:
+ifndef BUNDLE
+	@echo "Veuillez préciser l'entité à utiliser avec BUNDLE="
+	exit 1
+else
+	$(CONSOLE) doctrine:generate:entities $(BUNDLE)Bundle --no-backup
+endif
+
+server:
+	$(CONSOLE) server:run
 
