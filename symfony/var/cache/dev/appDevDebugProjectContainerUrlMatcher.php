@@ -135,13 +135,132 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
             }
 
-            // back_office_homepage
-            if (rtrim($pathinfo, '/') === '/admindep') {
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'back_office_homepage');
+            if (0 === strpos($pathinfo, '/admindep')) {
+                // back_office_homepage
+                if (rtrim($pathinfo, '/') === '/admindep') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'back_office_homepage');
+                    }
+
+                    return array (  '_controller' => 'BackOfficeBundle\\Controller\\DefaultController::indexAction',  '_route' => 'back_office_homepage',);
                 }
 
-                return array (  '_controller' => 'BackOfficeBundle\\Controller\\DefaultController::indexAction',  '_route' => 'back_office_homepage',);
+                if (0 === strpos($pathinfo, '/admindep/user')) {
+                    // back_office_user_create
+                    if (rtrim($pathinfo, '/') === '/admindep/user/add') {
+                        if (substr($pathinfo, -1) !== '/') {
+                            return $this->redirect($pathinfo.'/', 'back_office_user_create');
+                        }
+
+                        return array (  '_controller' => 'BackOfficeBundle\\Controller\\UserController::AddAction',  '_route' => 'back_office_user_create',);
+                    }
+
+                    // back_office_user_read
+                    if (rtrim($pathinfo, '/') === '/admindep/user/list') {
+                        if (substr($pathinfo, -1) !== '/') {
+                            return $this->redirect($pathinfo.'/', 'back_office_user_read');
+                        }
+
+                        return array (  '_controller' => 'BackOfficeBundle\\Controller\\UserController::ListAction',  '_route' => 'back_office_user_read',);
+                    }
+
+                    // back_office_user_update
+                    if (0 === strpos($pathinfo, '/admindep/user/edit') && preg_match('#^/admindep/user/edit/(?P<user>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'back_office_user_update')), array (  '_controller' => 'BackOfficeBundle\\Controller\\UserController::EditAction',));
+                    }
+
+                    // back_office_user_delete
+                    if (0 === strpos($pathinfo, '/admindep/user/delete') && preg_match('#^/admindep/user/delete/(?P<user>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'back_office_user_delete')), array (  '_controller' => 'BackOfficeBundle\\Controller\\UserController::DeleteAction',));
+                    }
+
+                }
+
+                if (0 === strpos($pathinfo, '/admindep/s')) {
+                    if (0 === strpos($pathinfo, '/admindep/service')) {
+                        // back_office_service_create
+                        if (rtrim($pathinfo, '/') === '/admindep/service/add') {
+                            if (substr($pathinfo, -1) !== '/') {
+                                return $this->redirect($pathinfo.'/', 'back_office_service_create');
+                            }
+
+                            return array (  '_controller' => 'BackOfficeBundle\\Controller\\ServiceController::AddAction',  '_route' => 'back_office_service_create',);
+                        }
+
+                        // back_office_service_read
+                        if (rtrim($pathinfo, '/') === '/admindep/service/list') {
+                            if (substr($pathinfo, -1) !== '/') {
+                                return $this->redirect($pathinfo.'/', 'back_office_service_read');
+                            }
+
+                            return array (  '_controller' => 'BackOfficeBundle\\Controller\\ServiceController::ListAction',  '_route' => 'back_office_service_read',);
+                        }
+
+                        // back_office_service_update
+                        if (0 === strpos($pathinfo, '/admindep/service/edit') && preg_match('#^/admindep/service/edit/(?P<service>[^/]++)$#s', $pathinfo, $matches)) {
+                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'back_office_service_update')), array (  '_controller' => 'BackOfficeBundle\\Controller\\ServiceController::EditAction',));
+                        }
+
+                        // back_office_service_delete
+                        if (0 === strpos($pathinfo, '/admindep/service/delete') && preg_match('#^/admindep/service/delete/(?P<service>[^/]++)$#s', $pathinfo, $matches)) {
+                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'back_office_service_delete')), array (  '_controller' => 'BackOfficeBundle\\Controller\\ServiceController::DeleteAction',));
+                        }
+
+                    }
+
+                    if (0 === strpos($pathinfo, '/admindep/societe')) {
+                        // back_office_societe_create
+                        if (rtrim($pathinfo, '/') === '/admindep/societe/add') {
+                            if (substr($pathinfo, -1) !== '/') {
+                                return $this->redirect($pathinfo.'/', 'back_office_societe_create');
+                            }
+
+                            return array (  '_controller' => 'BackOfficeBundle\\Controller\\SocieteController::AddAction',  '_route' => 'back_office_societe_create',);
+                        }
+
+                        // back_office_societe_read
+                        if (rtrim($pathinfo, '/') === '/admindep/societe/list') {
+                            if (substr($pathinfo, -1) !== '/') {
+                                return $this->redirect($pathinfo.'/', 'back_office_societe_read');
+                            }
+
+                            return array (  '_controller' => 'BackOfficeBundle\\Controller\\SocieteController::ListAction',  '_route' => 'back_office_societe_read',);
+                        }
+
+                        // back_office_societe_update
+                        if (0 === strpos($pathinfo, '/admindep/societe/edit') && preg_match('#^/admindep/societe/edit/(?P<societe>[^/]++)$#s', $pathinfo, $matches)) {
+                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'back_office_societe_update')), array (  '_controller' => 'BackOfficeBundle\\Controller\\SocieteController::EditAction',));
+                        }
+
+                        // back_office_societe_delete
+                        if (0 === strpos($pathinfo, '/admindep/societe/delete') && preg_match('#^/admindep/societe/delete/(?P<societe>[^/]++)$#s', $pathinfo, $matches)) {
+                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'back_office_societe_delete')), array (  '_controller' => 'BackOfficeBundle\\Controller\\SocieteController::DeleteAction',));
+                        }
+
+                    }
+
+                }
+
+                // _add
+                if ($pathinfo === '/admindep/Add') {
+                    return array (  '_controller' => 'BackOfficeBundle\\Controller\\SocieteController::AddAction',  '_route' => '_add',);
+                }
+
+                // _list
+                if ($pathinfo === '/admindep/List') {
+                    return array (  '_controller' => 'BackOfficeBundle\\Controller\\SocieteController::ListAction',  '_route' => '_list',);
+                }
+
+                // _edit
+                if ($pathinfo === '/admindep/Edit') {
+                    return array (  '_controller' => 'BackOfficeBundle\\Controller\\SocieteController::EditAction',  '_route' => '_edit',);
+                }
+
+                // _delete
+                if ($pathinfo === '/admindep/Delete') {
+                    return array (  '_controller' => 'BackOfficeBundle\\Controller\\SocieteController::DeleteAction',  '_route' => '_delete',);
+                }
+
             }
 
         }
