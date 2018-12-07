@@ -1,0 +1,38 @@
+header
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 4em;
+    padding: 0 2em;
+
+    font-size: 14px;
+
+    background-color: var(--theme-main);
+    color: var(--theme-accent);
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.479);
+}
+
+header h1
+{
+    margin: 0;
+    padding: 0;
+
+    font-size: 14px;
+}
+
+#fab-add-path
+{
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+}
+
+#btn-add-path::first-letter
+{
+    font-size: 2em;
+    color: blue !important;
+}
