@@ -1,6 +1,6 @@
 <?php
 
-
+namespace BackOfficeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 

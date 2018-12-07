@@ -155,13 +155,13 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                         return array (  '_controller' => 'BackOfficeBundle\\Controller\\UserController::AddAction',  '_route' => 'back_office_user_create',);
                     }
 
-                    // back_office_user_read
+                    // back_office_user_list
                     if (rtrim($pathinfo, '/') === '/admindep/user/list') {
                         if (substr($pathinfo, -1) !== '/') {
-                            return $this->redirect($pathinfo.'/', 'back_office_user_read');
+                            return $this->redirect($pathinfo.'/', 'back_office_user_list');
                         }
 
-                        return array (  '_controller' => 'BackOfficeBundle\\Controller\\UserController::ListAction',  '_route' => 'back_office_user_read',);
+                        return array (  '_controller' => 'BackOfficeBundle\\Controller\\UserController::ListAction',  '_route' => 'back_office_user_list',);
                     }
 
                     // back_office_user_update
@@ -187,13 +187,13 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                             return array (  '_controller' => 'BackOfficeBundle\\Controller\\ServiceController::AddAction',  '_route' => 'back_office_service_create',);
                         }
 
-                        // back_office_service_read
+                        // back_office_service_list
                         if (rtrim($pathinfo, '/') === '/admindep/service/list') {
                             if (substr($pathinfo, -1) !== '/') {
-                                return $this->redirect($pathinfo.'/', 'back_office_service_read');
+                                return $this->redirect($pathinfo.'/', 'back_office_service_list');
                             }
 
-                            return array (  '_controller' => 'BackOfficeBundle\\Controller\\ServiceController::ListAction',  '_route' => 'back_office_service_read',);
+                            return array (  '_controller' => 'BackOfficeBundle\\Controller\\ServiceController::ListAction',  '_route' => 'back_office_service_list',);
                         }
 
                         // back_office_service_update
@@ -218,13 +218,13 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                             return array (  '_controller' => 'BackOfficeBundle\\Controller\\SocieteController::AddAction',  '_route' => 'back_office_societe_create',);
                         }
 
-                        // back_office_societe_read
+                        // back_office_societe_list
                         if (rtrim($pathinfo, '/') === '/admindep/societe/list') {
                             if (substr($pathinfo, -1) !== '/') {
-                                return $this->redirect($pathinfo.'/', 'back_office_societe_read');
+                                return $this->redirect($pathinfo.'/', 'back_office_societe_list');
                             }
 
-                            return array (  '_controller' => 'BackOfficeBundle\\Controller\\SocieteController::ListAction',  '_route' => 'back_office_societe_read',);
+                            return array (  '_controller' => 'BackOfficeBundle\\Controller\\SocieteController::ListAction',  '_route' => 'back_office_societe_list',);
                         }
 
                         // back_office_societe_update

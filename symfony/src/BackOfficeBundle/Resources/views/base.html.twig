@@ -6,10 +6,9 @@
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/x-icon" href="{{ asset('.design/img/favicon.ico') }}" />
 
-		<link rel="stylesheet/less" type="text/css" media="all" href="{{ asset('./css/style.less') }}" />
+		<link rel="stylesheet/less" type="text/css" media="all" href="{{ asset('./css/style.css') }}" />
 		{% block styles %}{% endblock %}
 
-		<script src="{{ asset('./js/less.min.js') }}" type="text/javascript"  defer></script>
 		{% block scripts %}{% endblock %}
 
 		{% block head %}{% endblock %}
@@ -18,15 +17,9 @@
 		<header>
 			<div>
 				<a href="{{ path('back_office_homepage') }}">Home</a>
-				<a href="{{ path('_list') }}">Liste</a>
-				<a href="{{ path('_add_user') }}">Ajout</a>
-				<a href="{{ path('_list_annonce') }}">Liste Annonce</a>
-				<a href="{{ path('_add_annonce') }}">Ajout Annonce</a>
-				<a href="{{ path('back_office_ip') }}">Ip</a>
-				<a href="{{ path('back_office_test3') }}">Test3</a>
-				<a href="{{ path('back_office_test4') }}">Test4</a>
-				<a href="{{ path('back_office_test5', {'libelle':'azertyuiop', 'value':'14', 'nb':'3'}) }}">Test5</a>
-				<a href="{{ path('back_office_test6', {'libelle':'azertyuiop', 'value':'14', 'nb':'3'}) }}">Test6</a>
+				<a href="{{ path('back_office_user_list') }}">Users</a>
+				<a href="{{ path('back_office_service_list') }}">Services</a>
+				<a href="{{ path('back_office_societe_list') }}">Societes</a>
 			</div>
 			<div>{% block header %}{% endblock %}</div>
 		</header>

@@ -6,7 +6,7 @@ back_office_user_create:
     path:     /user/add/
     defaults: { _controller: BackOfficeBundle:User:Add }
 
-back_office_user_read:
+back_office_user_list:
     path:     /user/list/
     defaults: { _controller: BackOfficeBundle:User:List }
 
@@ -22,7 +22,7 @@ back_office_service_create:
     path:     /service/add/
     defaults: { _controller: BackOfficeBundle:Service:Add }
 
-back_office_service_read:
+back_office_service_list:
     path:     /service/list/
     defaults: { _controller: BackOfficeBundle:Service:List }
 
@@ -38,7 +38,7 @@ back_office_societe_create:
     path:     /societe/add/
     defaults: { _controller: BackOfficeBundle:Societe:Add }
 
-back_office_societe_read:
+back_office_societe_list:
     path:     /societe/list/
     defaults: { _controller: BackOfficeBundle:Societe:List }
 
