@@ -241,26 +241,6 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
                 }
 
-                // _add
-                if ($pathinfo === '/admindep/Add') {
-                    return array (  '_controller' => 'BackOfficeBundle\\Controller\\SocieteController::AddAction',  '_route' => '_add',);
-                }
-
-                // _list
-                if ($pathinfo === '/admindep/List') {
-                    return array (  '_controller' => 'BackOfficeBundle\\Controller\\SocieteController::ListAction',  '_route' => '_list',);
-                }
-
-                // _edit
-                if ($pathinfo === '/admindep/Edit') {
-                    return array (  '_controller' => 'BackOfficeBundle\\Controller\\SocieteController::EditAction',  '_route' => '_edit',);
-                }
-
-                // _delete
-                if ($pathinfo === '/admindep/Delete') {
-                    return array (  '_controller' => 'BackOfficeBundle\\Controller\\SocieteController::DeleteAction',  '_route' => '_delete',);
-                }
-
             }
 
         }

@@ -4451,3 +4451,7 @@
 [2018-12-07 09:38:45] security.INFO: Populated the TokenStorage with an anonymous Token. [] []
 [2018-12-07 09:38:45] request.INFO: Matched route "back_office_homepage". {"route":"back_office_homepage","route_parameters":{"_controller":"BackOfficeBundle\\Controller\\DefaultController::indexAction","_route":"back_office_homepage"},"request_uri":"http://127.0.0.1:8000/admindep/","method":"GET"} []
 [2018-12-07 09:38:45] security.INFO: Populated the TokenStorage with an anonymous Token. [] []
+[2018-12-07 09:44:43] request.INFO: Matched route "back_office_homepage". {"route":"back_office_homepage","route_parameters":{"_controller":"BackOfficeBundle\\Controller\\DefaultController::indexAction","_route":"back_office_homepage"},"request_uri":"http://127.0.0.1:8000/admindep/","method":"GET"} []
+[2018-12-07 09:44:43] security.INFO: Populated the TokenStorage with an anonymous Token. [] []
+[2018-12-07 09:50:38] request.INFO: Matched route "back_office_homepage". {"route":"back_office_homepage","route_parameters":{"_controller":"BackOfficeBundle\\Controller\\DefaultController::indexAction","_route":"back_office_homepage"},"request_uri":"http://127.0.0.1:8000/admindep/","method":"GET"} []
+[2018-12-07 09:50:38] security.INFO: Populated the TokenStorage with an anonymous Token. [] []
