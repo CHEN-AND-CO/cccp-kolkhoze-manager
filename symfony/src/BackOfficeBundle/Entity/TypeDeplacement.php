@@ -24,28 +24,28 @@ class TypeDeplacement
     /**
      * @var string
      *
-     * @ORM\Column(name="type_deplacement", type="string", length=255, nullable=false)
+     * @ORM\Column(name="type_deplacement", type="string", length=45, nullable=true)
      */
     private $typeDeplacement;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="montant", type="float", precision=10, scale=0, nullable=false)
+     * @ORM\Column(name="montant", type="float", precision=10, scale=0, nullable=true)
      */
     private $montant;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="created", type="datetime", nullable=false)
+     * @ORM\Column(name="created", type="datetime", nullable=true)
      */
     private $created;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="updated", type="datetime", nullable=false)
+     * @ORM\Column(name="updated", type="datetime", nullable=true)
      */
     private $updated;
 

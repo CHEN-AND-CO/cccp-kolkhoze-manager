@@ -155,13 +155,9 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                         return array (  '_controller' => 'BackOfficeBundle\\Controller\\UserController::AddAction',  '_route' => 'back_office_user_create',);
                     }
 
-                    // back_office_user_list
-                    if (rtrim($pathinfo, '/') === '/admindep/user/list') {
-                        if (substr($pathinfo, -1) !== '/') {
-                            return $this->redirect($pathinfo.'/', 'back_office_user_list');
-                        }
-
-                        return array (  '_controller' => 'BackOfficeBundle\\Controller\\UserController::ListAction',  '_route' => 'back_office_user_list',);
+                    // back_office_user_read
+                    if (0 === strpos($pathinfo, '/admindep/user/read') && preg_match('#^/admindep/user/read/(?P<user>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'back_office_user_read')), array (  '_controller' => 'BackOfficeBundle\\Controller\\UserController::ReadAction',));
                     }
 
                     // back_office_user_update
@@ -172,6 +168,15 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     // back_office_user_delete
                     if (0 === strpos($pathinfo, '/admindep/user/delete') && preg_match('#^/admindep/user/delete/(?P<user>[^/]++)$#s', $pathinfo, $matches)) {
                         return $this->mergeDefaults(array_replace($matches, array('_route' => 'back_office_user_delete')), array (  '_controller' => 'BackOfficeBundle\\Controller\\UserController::DeleteAction',));
+                    }
+
+                    // back_office_user_list
+                    if (rtrim($pathinfo, '/') === '/admindep/user/list') {
+                        if (substr($pathinfo, -1) !== '/') {
+                            return $this->redirect($pathinfo.'/', 'back_office_user_list');
+                        }
+
+                        return array (  '_controller' => 'BackOfficeBundle\\Controller\\UserController::ListAction',  '_route' => 'back_office_user_list',);
                     }
 
                 }

@@ -24,14 +24,14 @@ class Ville
     /**
      * @var string
      *
-     * @ORM\Column(name="ville", type="string", length=255, nullable=false)
+     * @ORM\Column(name="ville", type="string", length=100, nullable=true)
      */
     private $ville;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="cp", type="string", length=255, nullable=false)
+     * @ORM\Column(name="cp", type="string", length=5, nullable=true)
      */
     private $cp;
 

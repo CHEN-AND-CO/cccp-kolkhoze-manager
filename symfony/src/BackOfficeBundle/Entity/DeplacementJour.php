@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * DeplacementJour
  *
- * @ORM\Table(name="deplacement_jour", indexes={@ORM\Index(name="deplacement", columns={"deplacement"}), @ORM\Index(name="type_deplacement", columns={"type_deplacement"})})
+ * @ORM\Table(name="deplacement_jour", indexes={@ORM\Index(name="fk_deplacement_jour_type_deplacement1_idx", columns={"type_deplacement_id"}), @ORM\Index(name="fk_deplacement_jour_deplacement1_idx", columns={"deplacement_id"})})
  * @ORM\Entity
  */
 class DeplacementJour
@@ -24,42 +24,42 @@ class DeplacementJour
     /**
      * @var float
      *
-     * @ORM\Column(name="nb_km", type="float", precision=10, scale=0, nullable=false)
+     * @ORM\Column(name="nb_km", type="float", precision=10, scale=0, nullable=true)
      */
     private $nbKm;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="montant", type="float", precision=10, scale=0, nullable=false)
+     * @ORM\Column(name="montant", type="float", precision=10, scale=0, nullable=true)
      */
     private $montant;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="jour", type="integer", nullable=false)
+     * @ORM\Column(name="jour", type="integer", nullable=true)
      */
     private $jour;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="date", nullable=false)
+     * @ORM\Column(name="date", type="date", nullable=true)
      */
     private $date;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="created", type="datetime", nullable=false)
+     * @ORM\Column(name="created", type="datetime", nullable=true)
      */
     private $created;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="updated", type="datetime", nullable=false)
+     * @ORM\Column(name="updated", type="datetime", nullable=true)
      */
     private $updated;
 
@@ -68,7 +68,7 @@ class DeplacementJour
      *
      * @ORM\ManyToOne(targetEntity="Deplacement")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="deplacement", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="deplacement_id", referencedColumnName="id")
      * })
      */
     private $deplacement;
@@ -78,7 +78,7 @@ class DeplacementJour
      *
      * @ORM\ManyToOne(targetEntity="TypeDeplacement")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="type_deplacement", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="type_deplacement_id", referencedColumnName="id")
      * })
      */
     private $typeDeplacement;

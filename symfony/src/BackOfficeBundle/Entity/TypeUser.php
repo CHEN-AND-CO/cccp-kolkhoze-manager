@@ -24,7 +24,7 @@ class TypeUser
     /**
      * @var string
      *
-     * @ORM\Column(name="type_user", type="string", length=255, nullable=false)
+     * @ORM\Column(name="type_user", type="string", length=45, nullable=true)
      */
     private $typeUser;
 

@@ -6,9 +6,9 @@ back_office_user_create:
     path:     /user/add/
     defaults: { _controller: BackOfficeBundle:User:Add }
 
-back_office_user_list:
-    path:     /user/list/
-    defaults: { _controller: BackOfficeBundle:User:List }
+back_office_user_read:
+    path:     /user/read/{user}
+    defaults: { _controller: BackOfficeBundle:User:Read }
 
 back_office_user_update:
     path:     /user/edit/{user}
@@ -17,6 +17,10 @@ back_office_user_update:
 back_office_user_delete:
     path:     /user/delete/{user}
     defaults: { _controller: BackOfficeBundle:User:Delete }
+
+back_office_user_list:
+    path:     /user/list/
+    defaults: { _controller: BackOfficeBundle:User:List }
 
 back_office_service_create:
     path:     /service/add/

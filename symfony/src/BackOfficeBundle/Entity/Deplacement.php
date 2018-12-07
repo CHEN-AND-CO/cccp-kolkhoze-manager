@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Deplacement
  *
- * @ORM\Table(name="deplacement", indexes={@ORM\Index(name="user", columns={"user"}), @ORM\Index(name="validateur", columns={"validateur"})})
+ * @ORM\Table(name="deplacement", indexes={@ORM\Index(name="fk_deplacement_user1_idx", columns={"user_id"}), @ORM\Index(name="fk_deplacement_user2_idx", columns={"user_id1"})})
  * @ORM\Entity
  */
 class Deplacement
@@ -24,42 +24,42 @@ class Deplacement
     /**
      * @var integer
      *
-     * @ORM\Column(name="annee", type="integer", nullable=false)
+     * @ORM\Column(name="annee", type="integer", nullable=true)
      */
     private $annee;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="mois", type="integer", nullable=false)
+     * @ORM\Column(name="mois", type="integer", nullable=true)
      */
     private $mois;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_validation", type="date", nullable=false)
+     * @ORM\Column(name="date_validation", type="date", nullable=true)
      */
     private $dateValidation;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="created", type="datetime", nullable=false)
+     * @ORM\Column(name="created", type="datetime", nullable=true)
      */
     private $created;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="updated", type="datetime", nullable=false)
+     * @ORM\Column(name="updated", type="datetime", nullable=true)
      */
     private $updated;
 
     /**
-     * @var integer
+     * @var boolean
      *
-     * @ORM\Column(name="validation", type="smallint", nullable=false)
+     * @ORM\Column(name="validation", type="boolean", nullable=true)
      */
     private $validation;
 
@@ -68,7 +68,7 @@ class Deplacement
      *
      * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="user", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
      */
     private $user;
@@ -78,10 +78,10 @@ class Deplacement
      *
      * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="validateur", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="user_id1", referencedColumnName="id")
      * })
      */
-    private $validateur;
+    private $user1;
 
 
 }
