@@ -4443,3 +4443,5 @@
 [2018-12-07 09:20:10] security.INFO: Populated the TokenStorage with an anonymous Token. [] []
 [2018-12-07 09:29:53] request.INFO: Matched route "front_office_homepage". {"route":"front_office_homepage","route_parameters":{"_controller":"FrontOfficeBundle\\Controller\\DefaultController::indexAction","_route":"front_office_homepage"},"request_uri":"http://127.0.0.1:8000/","method":"GET"} []
 [2018-12-07 09:29:53] security.INFO: Populated the TokenStorage with an anonymous Token. [] []
+[2018-12-07 09:30:53] request.INFO: Matched route "front_office_homepage". {"route":"front_office_homepage","route_parameters":{"_controller":"FrontOfficeBundle\\Controller\\DefaultController::indexAction","_route":"front_office_homepage"},"request_uri":"http://127.0.0.1:8000/","method":"GET"} []
+[2018-12-07 09:30:53] security.INFO: Populated the TokenStorage with an anonymous Token. [] []
