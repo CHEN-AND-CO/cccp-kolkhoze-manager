@@ -96,10 +96,10 @@ html, body
 
 *[class*="material-button"]:hover::before
 {
-    opacity: 0.05;
+    opacity: 0.04;
 }
 
 *[class*="material-button"].light:hover::before
 {
-    opacity: 0.25;
+    opacity: 0.15;
 }
