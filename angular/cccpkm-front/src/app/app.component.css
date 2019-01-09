@@ -24,6 +24,14 @@ header h1
     font-size: 14px;
 }
 
+main
+{
+    box-sizing: border-box;
+    height: 100%;
+    width: 80%;
+    margin: 2em auto;
+}
+
 #fab-add-path
 {
     position: absolute;
@@ -31,8 +39,10 @@ header h1
     right: 1em;
 }
 
+/*
 #btn-add-path::first-letter
 {
     font-size: 2em;
     color: blue !important;
 }
+*/
