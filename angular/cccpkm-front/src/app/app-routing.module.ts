@@ -19,5 +19,3 @@ const routes: Routes = [
 })
 
 export class AppRoutingModule { }
-
-//bite
