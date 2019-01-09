@@ -1,0 +1,1 @@
+[2019-01-09 13:09:55] php.DEBUG: fsockopen(): unable to connect to 127.0.0.1:8000 (Connection refused) {"type":2,"file":"/home/mathias/Bureau/ISEN/PHP/Projet/Symfony_Angular/project_git/symfony/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Command/ServerCommand.php","line":61,"level":28928} []
