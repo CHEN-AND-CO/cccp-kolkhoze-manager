@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-app-home',
@@ -7,11 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AppHomeComponent implements OnInit {
 
-  @Input() user: string;
-
-  constructor() { }
+  username: string;
+  
+  constructor(private route: ActivatedRoute ) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe(params => this.username = params.get('uname'));
   }
 
 }

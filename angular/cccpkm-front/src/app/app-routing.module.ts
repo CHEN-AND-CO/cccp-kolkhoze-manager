@@ -9,11 +9,12 @@ import { ErrorComponent } from './error/error.component';
 
 const routes: Routes = [
   { path: 'home', component: AppHomeComponent },
-  { path: 'u/:uname/trips/:tid/edit', component: TripEditComponent },
-  { path: 'u/:uname/trips', component: TripListComponent },
-  { path: 'u/:uname/new', component: TripEditComponent },
-  { path: 'u/:uname/edit', component: UserEditComponent },
-  { path: 'u/:uname', component: AppHomeComponent },
+  { path: 'trips/:uid/edit/:tid', component: TripEditComponent },
+  { path: 'trips/:uid', component: TripListComponent },
+  { path: 'trips', component: TripListComponent },
+  { path: 'u/:uid/new', component: TripEditComponent },
+  { path: 'u/:uid/edit', component: UserEditComponent },
+  { path: 'u/:uid', component: AppHomeComponent },
   { path: '', component: AppHomeComponent },
   { path: '**', component: ErrorComponent }
 ];
