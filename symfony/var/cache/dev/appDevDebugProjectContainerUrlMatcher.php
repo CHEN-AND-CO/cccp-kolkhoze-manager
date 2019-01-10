@@ -145,6 +145,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     return array (  '_controller' => 'BackOfficeBundle\\Controller\\DefaultController::indexAction',  '_route' => 'back_office_homepage',);
                 }
 
+                // back_office_stats
+                if ($pathinfo === '/admindep/stats') {
+                    return array (  '_controller' => 'BackOfficeBundle\\Controller\\DefaultController::StatsAction',  '_route' => 'back_office_stats',);
+                }
+
                 if (0 === strpos($pathinfo, '/admindep/user')) {
                     // back_office_user_create
                     if (rtrim($pathinfo, '/') === '/admindep/user/add') {
