@@ -162,27 +162,27 @@ class User
 	}
 
 	/**
-	* Set address
+	* Set adresse
 	*
-	* @param string $address
+	* @param string $adresse
 	*
 	* @return User
 	*/
-	public function setAddress($address)
+	public function setAdresse($adresse)
 	{
-		$this->address = $address;
+		$this->adresse = $adresse;
 
 		return $this;
 	}
 
 	/**
-	* Get address
+	* Get adresse
 	*
 	* @return string
 	*/
-	public function getAddress()
+	public function getAdresse()
 	{
-		return $this->address;
+		return $this->adresse;
 	}
 
 	/**
@@ -192,7 +192,7 @@ class User
 	*
 	* @return User
 	*/
-	public function set($distanceInit)
+	public function setDistanceInit($distanceInit)
 	{
 		$this->distanceInit = $distanceInit;
 

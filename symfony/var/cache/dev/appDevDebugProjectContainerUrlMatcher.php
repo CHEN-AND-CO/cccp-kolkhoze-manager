@@ -192,6 +192,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                             return array (  '_controller' => 'BackOfficeBundle\\Controller\\ServiceController::AddAction',  '_route' => 'back_office_service_create',);
                         }
 
+                        // back_office_service_read
+                        if (0 === strpos($pathinfo, '/admindep/service/read') && preg_match('#^/admindep/service/read/(?P<service>[^/]++)$#s', $pathinfo, $matches)) {
+                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'back_office_service_read')), array (  '_controller' => 'BackOfficeBundle\\Controller\\ServiceController::ReadAction',));
+                        }
+
                         // back_office_service_list
                         if (rtrim($pathinfo, '/') === '/admindep/service/list') {
                             if (substr($pathinfo, -1) !== '/') {
@@ -223,6 +228,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                             return array (  '_controller' => 'BackOfficeBundle\\Controller\\SocieteController::AddAction',  '_route' => 'back_office_societe_create',);
                         }
 
+                        // back_office_societe_read
+                        if (0 === strpos($pathinfo, '/admindep/societe/read') && preg_match('#^/admindep/societe/read/(?P<societe>[^/]++)$#s', $pathinfo, $matches)) {
+                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'back_office_societe_read')), array (  '_controller' => 'BackOfficeBundle\\Controller\\SocieteController::ReadAction',));
+                        }
+
                         // back_office_societe_list
                         if (rtrim($pathinfo, '/') === '/admindep/societe/list') {
                             if (substr($pathinfo, -1) !== '/') {
@@ -242,6 +252,28 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                             return $this->mergeDefaults(array_replace($matches, array('_route' => 'back_office_societe_delete')), array (  '_controller' => 'BackOfficeBundle\\Controller\\SocieteController::DeleteAction',));
                         }
 
+                    }
+
+                }
+
+                if (0 === strpos($pathinfo, '/admindep/deplacement')) {
+                    // back_office_deplacement_read
+                    if (preg_match('#^/admindep/deplacement/(?P<id>[^/]++)/read/(?P<deplacement>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'back_office_deplacement_read')), array (  '_controller' => 'BackOfficeBundle\\Controller\\DeplacementController::ReadAction',));
+                    }
+
+                    // back_office_deplacement_list
+                    if (preg_match('#^/admindep/deplacement/(?P<id>[^/]++)/list/?$#s', $pathinfo, $matches)) {
+                        if (substr($pathinfo, -1) !== '/') {
+                            return $this->redirect($pathinfo.'/', 'back_office_deplacement_list');
+                        }
+
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'back_office_deplacement_list')), array (  '_controller' => 'BackOfficeBundle\\Controller\\DeplacementController::ListAction',));
+                    }
+
+                    // back_office_deplacement_update
+                    if (preg_match('#^/admindep/deplacement/(?P<id>[^/]++)/edit/(?P<deplacement>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'back_office_deplacement_update')), array (  '_controller' => 'BackOfficeBundle\\Controller\\DeplacementController::EditAction',));
                     }
 
                 }
