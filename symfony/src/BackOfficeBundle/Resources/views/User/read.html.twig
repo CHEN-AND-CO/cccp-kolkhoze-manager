@@ -1,0 +1,39 @@
+{% extends '@BackOffice/base.html.twig' %}
+
+{# Head part #}
+	{% block title %}
+		Utilisateur {{ obj }}
+	{% endblock %}
+
+	{% block styles %}
+		
+	{% endblock %}
+
+	{% block scripts %}
+		
+	{% endblock %}
+
+	{% block head %}
+		
+	{% endblock %}
+{# End Head part #}
+{# Body part #}
+	{% block header %}
+		<h1>Utilisateur {{ obj }}</h1>
+	{% endblock %}
+
+	{% block body %}
+		Adresse : {{ obj.adresse }}<br />
+		Distance init : {{ obj.distanceInit }}<br />
+		Service : {{ obj.service }}<br />
+		Société : {{ obj.societe }}<br />
+		Ville : {{ obj.ville }}<br />
+		<br />
+		<a href="{{ path('back_office_user_update', {'user':obj.id}) }}" target="_self">Modifier</a><br />
+		<a href="{{ path('back_office_user_delete', {'user':obj.id}) }}" target="_self">Supprimer</a>
+	{% endblock %}
+
+	{% block footer %}
+		
+	{% endblock %}
+{# End Body part #}

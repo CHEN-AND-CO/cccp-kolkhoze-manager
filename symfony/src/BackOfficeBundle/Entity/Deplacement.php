@@ -83,6 +83,210 @@ class Deplacement
      */
     private $user1;
 
+	/**
+	* Get id
+	*
+	* @return integer
+	*/
+	public function getId()
+	{
+		return $this->id;
+	}
 
+	/**
+	* Set annee
+	*
+	* @param integer $annee
+	*
+	* @return Deplacement
+	*/
+	public function setAnnee($annee)
+	{
+		$this->annee = $annee;
+
+		return $this;
+	}
+
+	/**
+	* Get annee
+	*
+	* @return integer
+	*/
+	public function getAnnee()
+	{
+		return $this->annee;
+	}
+
+	/**
+	* Set mois
+	*
+	* @param integer $mois
+	*
+	* @return Deplacement
+	*/
+	public function setMois($mois)
+	{
+		$this->mois = $mois;
+
+		return $this;
+	}
+
+	/**
+	* Get mois
+	*
+	* @return integer
+	*/
+	public function getMois()
+	{
+		return $this->mois;
+	}
+
+	/**
+	* Set dateValidation
+	*
+	* @param \DateTime $dateValidation
+	*
+	* @return Deplacement
+	*/
+	public function setDateValidation($dateValidation)
+	{
+		$this->dateValidation = $dateValidation;
+
+		return $this;
+	}
+
+	/**
+	* Get dateValidation
+	*
+	* @return \DateTime
+	*/
+	public function getDateValidation()
+	{
+		return $this->dateValidation;
+	}
+
+	/**
+	* Set created
+	*
+	* @param \DateTime $created
+	*
+	* @return Deplacement
+	*/
+	public function setCreated($created)
+	{
+		$this->created = $created;
+
+		return $this;
+	}
+
+	/**
+	* Get created
+	*
+	* @return \DateTime
+	*/
+	public function getCreated()
+	{
+		return $this->created;
+	}
+
+	/**
+	* Set updated
+	*
+	* @param \DateTime $updated
+	*
+	* @return Deplacement
+	*/
+	public function setUpdated($updated)
+	{
+		$this->updated = $updated;
+
+		return $this;
+	}
+
+	/**
+	* Get updated
+	*
+	* @return \DateTime
+	*/
+	public function getUpdated()
+	{
+		return $this->updated;
+	}
+
+	/**
+	* Set validation
+	*
+	* @param boolean $validation
+	*
+	* @return Deplacement
+	*/
+	public function setValidation($validation)
+	{
+		$this->validation = $validation;
+
+		return $this;
+	}
+
+	/**
+	* Get validation
+	*
+	* @return boolean
+	*/
+	public function getValidation()
+	{
+		return $this->validation;
+	}
+
+	/**
+	* Set user
+	*
+	* @param \User $user
+	*
+	* @return Deplacement
+	*/
+	public function setUser($user)
+	{
+		$this->user = $user;
+
+		return $this;
+	}
+
+	/**
+	* Get user
+	*
+	* @return \User
+	*/
+	public function getUser()
+	{
+		return $this->user;
+	}
+
+	/**
+	* Set user1
+	*
+	* @param \User $user1
+	*
+	* @return Deplacement
+	*/
+	public function setUser1($user1)
+	{
+		$this->user1 = $user1;
+
+		return $this;
+	}
+
+	/**
+	* Get user1
+	*
+	* @return \User
+	*/
+	public function getUser1()
+	{
+		return $this->user1;
+	}
+
+	function __toString(){
+		return "du " . $this->mois . "/" . $this->annee . " par " . $this->user;
+	}
 }
 

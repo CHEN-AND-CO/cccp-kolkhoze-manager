@@ -2,7 +2,7 @@
 
 {# Head part #}
 	{% block title %}
-		BackOfficeBundle:Societe:Delete
+		Société {{ obj }}
 	{% endblock %}
 
 	{% block styles %}
@@ -19,11 +19,15 @@
 {# End Head part #}
 {# Body part #}
 	{% block header %}
-		<h1>Welcome to the Societe:Delete page</h1>
+		<h1>Société {{ obj }}</h1>
 	{% endblock %}
 
 	{% block body %}
-		Hello World
+		Adresse : {{ obj.adresse }}<br />
+		Ville : {{ obj.ville }}<br />
+		<br />
+		<a href="{{ path('back_office_societe_update', {'societe':obj.id}) }}" target="_self">Modifier</a><br />
+		<a href="{{ path('back_office_societe_delete', {'societe':obj.id}) }}" target="_self">Supprimer</a>
 	{% endblock %}
 
 	{% block footer %}

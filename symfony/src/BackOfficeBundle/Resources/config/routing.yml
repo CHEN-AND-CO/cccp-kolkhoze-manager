@@ -2,6 +2,10 @@ back_office_homepage:
     path:     /
     defaults: { _controller: BackOfficeBundle:Default:index }
 
+back_office_stats:
+    path:     /stats
+    defaults: { _controller: BackOfficeBundle:Default:Stats }
+
 back_office_user_create:
     path:     /user/add/
     defaults: { _controller: BackOfficeBundle:User:Add }
@@ -26,6 +30,10 @@ back_office_service_create:
     path:     /service/add/
     defaults: { _controller: BackOfficeBundle:Service:Add }
 
+back_office_service_read:
+    path:     /service/read/{service}
+    defaults: { _controller: BackOfficeBundle:Service:Read }
+
 back_office_service_list:
     path:     /service/list/
     defaults: { _controller: BackOfficeBundle:Service:List }
@@ -42,6 +50,10 @@ back_office_societe_create:
     path:     /societe/add/
     defaults: { _controller: BackOfficeBundle:Societe:Add }
 
+back_office_societe_read:
+    path:     /societe/read/{societe}
+    defaults: { _controller: BackOfficeBundle:Societe:Read }
+
 back_office_societe_list:
     path:     /societe/list/
     defaults: { _controller: BackOfficeBundle:Societe:List }
@@ -53,3 +65,15 @@ back_office_societe_update:
 back_office_societe_delete:
     path:     /societe/delete/{societe}
     defaults: { _controller: BackOfficeBundle:Societe:Delete }
+
+back_office_deplacement_read:
+    path:     /deplacement/{id}/read/{deplacement}
+    defaults: { _controller: BackOfficeBundle:Deplacement:Read }
+
+back_office_deplacement_list:
+    path:     /deplacement/{id}/list/
+    defaults: { _controller: BackOfficeBundle:Deplacement:List }
+
+back_office_deplacement_update:
+    path:     /deplacement/{id}/edit/{deplacement}
+    defaults: { _controller: BackOfficeBundle:Deplacement:Edit }

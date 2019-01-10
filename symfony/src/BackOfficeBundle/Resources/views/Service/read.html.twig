@@ -1,0 +1,35 @@
+{% extends '@BackOffice/base.html.twig' %}
+
+{# Head part #}
+	{% block title %}
+		Service {{ obj }}
+	{% endblock %}
+
+	{% block styles %}
+		
+	{% endblock %}
+
+	{% block scripts %}
+		
+	{% endblock %}
+
+	{% block head %}
+		
+	{% endblock %}
+{# End Head part #}
+{# Body part #}
+	{% block header %}
+		<h1>Service {{ obj }}</h1>
+	{% endblock %}
+
+	{% block body %}
+		Nom du Service : {{ obj.service }}<br />
+		<br />
+		<a href="{{ path('back_office_service_update', {'service':obj.id}) }}" target="_self">Modifier</a><br />
+		<a href="{{ path('back_office_service_delete', {'service':obj.id}) }}" target="_self">Supprimer</a>
+	{% endblock %}
+
+	{% block footer %}
+		
+	{% endblock %}
+{# End Body part #}

@@ -20,6 +20,9 @@
 				<a href="{{ path('back_office_user_list') }}">Users</a>
 				<a href="{{ path('back_office_service_list') }}">Services</a>
 				<a href="{{ path('back_office_societe_list') }}">Societes</a>
+				<a href="{{ path('back_office_deplacement_list', {'id':'1'}) }}">Déplacements (en tant qu'Admin)</a>
+				<a href="{{ path('back_office_deplacement_list', {'id':'2'}) }}">Déplacements (en tant que Julien)</a>
+				<a href="{{ path('back_office_stats') }}">Statistiques</a>
 			</div>
 			<div>{% block header %}{% endblock %}</div>
 		</header>

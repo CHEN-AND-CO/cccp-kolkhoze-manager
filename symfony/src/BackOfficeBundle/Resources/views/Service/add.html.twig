@@ -2,7 +2,7 @@
 
 {# Head part #}
 	{% block title %}
-		BackOfficeBundle:Service:Add
+		Ajout d'utilisateur
 	{% endblock %}
 
 	{% block styles %}
@@ -19,11 +19,13 @@
 {# End Head part #}
 {# Body part #}
 	{% block header %}
-		<h1>Welcome to the Service:Add page</h1>
+		<h1>Ajouter un utilisateur</h1>
 	{% endblock %}
 
 	{% block body %}
-		
+		{{ form_start(form) }}
+		{{ form_widget(form) }}
+		{{ form_end(form) }}
 	{% endblock %}
 
 	{% block footer %}

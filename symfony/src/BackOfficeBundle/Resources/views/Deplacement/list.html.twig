@@ -1,0 +1,54 @@
+{% extends '@BackOffice/base.html.twig' %}
+
+{# Head part #}
+	{% block title %}
+		Liste des déplacements
+	{% endblock %}
+
+	{% block styles %}
+		
+	{% endblock %}
+
+	{% block scripts %}
+		
+	{% endblock %}
+
+	{% block head %}
+		
+	{% endblock %}
+{# End Head part #}
+{# Body part #}
+	{% block header %}
+		
+	{% endblock %}
+
+	{% block body %}
+		<h2>Déplacements</h2>
+		<table>
+			<tr>
+				<td>Mois</td>
+				<td>Année</td>
+				<td>Utilisateur</td>
+				<td>Validé ?</td>
+				<td>Date</td>
+				<td>En détails</td>
+				<td>Modifier le service</td>
+			</tr>
+			{% for obj in objs %}
+				<tr>
+					<td>{{ obj.mois }}</td>
+					<td>{{ obj.annee }}</td>
+					<td>{{ obj.user }}</td>
+					<td>{{ obj.validation }}</td>
+					<td>{{ obj.dateValidation|date('Y-m-d') }}</td>
+					<td><a href="{{ path('back_office_deplacement_read', {'id':user.id, 'deplacement':obj.id}) }}" target="_self">Détails</a></td>
+					<td><a href="{{ path('back_office_deplacement_update', {'id':user.id, 'deplacement':obj.id}) }}">Modifier</a></td>
+				</tr>
+			{% endfor %}
+		</table>
+	{% endblock %}
+
+	{% block footer %}
+		
+	{% endblock %}
+{# End Body part #}

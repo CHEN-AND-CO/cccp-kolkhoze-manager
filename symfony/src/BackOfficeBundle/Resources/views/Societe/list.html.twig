@@ -2,7 +2,7 @@
 
 {# Head part #}
 	{% block title %}
-		BackOfficeBundle:Societe:List
+		Liste des sociétés
 	{% endblock %}
 
 	{% block styles %}
@@ -19,11 +19,33 @@
 {# End Head part #}
 {# Body part #}
 	{% block header %}
-		<h1>Welcome to the Societe:List page</h1>
+		<a href="{{ path('back_office_societe_create') }}">Ajouter une société</a><br /><br />
+		<!--<form method="post" action="{{ path('back_office_societe_list') }}">
+			<input type="text" name="shape" id="shape" />
+			<input type="submit" value="Rechercher" />
+		</form>-->
 	{% endblock %}
 
 	{% block body %}
-		Hello World
+		<h2>Sociétés</h2>
+		<table>
+			<tr>
+				<td>Nom</td>
+				<td>Adresse</td>
+				<td>Ville</td>
+				<td>En détails</td>
+				<td>Modifier la société</td>
+			</tr>
+			{% for obj in objs %}
+				<tr>
+					<td>{{ obj.societe }}</td>
+					<td>{{ obj.adresse }}</td>
+					<td>{{ obj.ville }}</td>
+					<td><a href="{{ path('back_office_societe_read', {'societe':obj.id}) }}" target="_self">Détails</a></td>
+					<td><a href="{{ path('back_office_societe_update', {'societe':obj.id}) }}">Modifier</a></td>
+				</tr>
+			{% endfor %}
+		</table>
 	{% endblock %}
 
 	{% block footer %}

@@ -2,7 +2,7 @@
 
 {# Head part #}
 	{% block title %}
-		BackOfficeBundle:Service:List
+		Liste des services
 	{% endblock %}
 
 	{% block styles %}
@@ -19,11 +19,29 @@
 {# End Head part #}
 {# Body part #}
 	{% block header %}
-		<h1>Welcome to the Service:List page</h1>
+		<a href="{{ path('back_office_service_create') }}">Ajouter un service</a><br /><br />
+		<!--<form method="post" action="{{ path('back_office_service_list') }}">
+			<input type="text" name="shape" id="shape" />
+			<input type="submit" value="Rechercher" />
+		</form>-->
 	{% endblock %}
 
 	{% block body %}
-		Hello World
+		<h2>Services</h2>
+		<table>
+			<tr>
+				<td>Service</td>
+				<td>En détails</td>
+				<td>Modifier le service</td>
+			</tr>
+			{% for obj in objs %}
+				<tr>
+					<td>{{ obj.service }}</td>
+					<td><a href="{{ path('back_office_service_read', {'service':obj.id}) }}" target="_self">Détails</a></td>
+					<td><a href="{{ path('back_office_service_update', {'service':obj.id}) }}">Modifier</a></td>
+				</tr>
+			{% endfor %}
+		</table>
 	{% endblock %}
 
 	{% block footer %}
