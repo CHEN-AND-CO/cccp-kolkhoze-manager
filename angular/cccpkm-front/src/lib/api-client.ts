@@ -48,7 +48,7 @@ export class ApiClient {
         else return this.http.get<Array<Trip>>(api_uri + '/trips/');
     }
 
-    getTripsByDate(uid: number, month: number, year: number) {
+    getTripsByDate(uid: number, year: number, month: number) {
         return this.http.get<Array<Trip>>(api_uri + '/trips/' + uid + '/' + year + '/' + month);
     }
 }
