@@ -10,6 +10,7 @@ use BackOfficeBundle\Entity\User;
 use BackOfficeBundle\Entity\Deplacement;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
@@ -22,9 +23,21 @@ class DefaultController extends Controller
 
 		$trips = $em->getRepository('BackOfficeBundle:Deplacement')->findAllApi();
 
-		return new JsonResponse(array(
+		$answer = new Response(
+								'Content',
+								Response::HTTP_OK,
+								array(
+									'content-type' => 'application/json',
+									'Access­Control­Allow­Origin' => '*'
+									)
+								);
+
+		$answer->setContent(json_encode($trips));
+
+		return $answer;
+		/*return new JsonResponse(array(
 			$trips
-		));
+		));*/
 	}
 
 	public function TripsUserApiAction(User $user){
@@ -46,8 +59,20 @@ class DefaultController extends Controller
 
 		$users = $em->getRepository('BackOfficeBundle:User')->findByIdApi($user->getId());
 
-		return new JsonResponse(array(
+		$answer = new Response(
+								'Content',
+								Response::HTTP_OK,
+								array(
+									'content-type' => 'application/json',
+									'Access­Control­Allow­Origin' => '*'
+									)
+								);
+
+		$answer->setContent(json_encode($trips));
+
+		return $answer;
+		/*return new JsonResponse(array(
 			$users
-		));
+		));*/
 	}
 }
