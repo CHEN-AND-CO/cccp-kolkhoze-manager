@@ -12,19 +12,34 @@ export class TripListComponent implements OnInit {
 
   trips: Trip[];
   user: User;
-  uid: any;
+
+  uid: number;
+  year: number;
+  month:number;
 
   constructor(private api: ApiClient, private route: ActivatedRoute) { }
   
   ngOnInit() {
-    
+
     this.uid = this.route.snapshot.params.uid;
+    this.year = this.route.snapshot.params.year;
+    this.month = this.route.snapshot.params.month;
 
-    this.api.getTrips(this.uid)
-            .subscribe( (data: Trip[]) => this.trips = data );
 
+    
     this.api.getUser(this.uid)
-            .subscribe( (data: User) => this.user = { ...data });
+    .subscribe( (data: User) => this.user = data);
+    
+    if (this.year && this.month)
+    {
+      this.api.getTripsByDate(this.uid, this.year, this.month)
+              .subscribe( (data: Trip[]) => this.trips = data );
+    } else {
+      this.api.getTrips(this.uid)
+              .subscribe( (data: Trip[]) => this.trips = data );
+    }
+
+    // if (this.trips.length) this.trips.forEach( trip => trip.date = trip._date.date.split(' ')[0] );
   }
 
 }

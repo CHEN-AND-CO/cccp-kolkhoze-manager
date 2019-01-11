@@ -8,7 +8,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let trip of trips">
-        <td>{{trip.date.date}}</td>
+        <td>{{trip.date.date.split(' ')[0].split('-').join('/')}}</td>
         <td>{{trip.type}}</td>
         <td>{{trip.distance}} km</td>
         <td>{{trip.amount}}€</td>
