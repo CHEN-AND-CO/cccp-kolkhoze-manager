@@ -49,14 +49,15 @@ class DefaultController extends Controller
 		$trip = new DeplacementJour();
 
 		$form = $this->createForm(DeplacementJourType::class, $trip)
-				->add('save', SubmitType::class, array('label' => 'Modifier le déplacement'));
+				->add('save', SubmitType::class, array('label' => 'Créer le déplacement'));
 
 
 		$form->handleRequest($request);
 
 		if($form->isSubmitted() && $form->isValid()){
-			// $trip = $form->getData();
+			$trip = $form->getData();
 
+			$trip->setCreated(new \DateTime());
 			$trip->setUpdated(new \DateTime());
 
 			$em = $this->getDoctrine()->getManager();
@@ -83,14 +84,14 @@ class DefaultController extends Controller
 		$form->handleRequest($request);
 
 		if($form->isSubmitted() && $form->isValid()){
-			$id = $form->getData();
+			$trip = $form->getData();
 
-			$id->setUpdated(new \DateTime());
+			$trip->setUpdated(new \DateTime());
 
 			$em = $this->getDoctrine()->getManager();
 
 			// tells Doctrine you want to (eventually) save the Product (no queries yet)
-			$em->persist($id);
+			$em->persist($trip);
 
 			// actually executes the queries (i.e. the INSERT query)
 			$em->flush();

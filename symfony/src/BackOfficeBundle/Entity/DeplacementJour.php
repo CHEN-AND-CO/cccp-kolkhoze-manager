@@ -274,7 +274,7 @@ class DeplacementJour
 	*
 	* @return DeplacementJour
 	*/
-	public function setDTypeDeplacement($typeDeplacement)
+	public function setTypeDeplacement($typeDeplacement)
 	{
 		$this->typeDeplacement = $typeDeplacement;
 
