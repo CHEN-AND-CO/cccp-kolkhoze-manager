@@ -39,10 +39,50 @@ header h1
     font-size: 14px;
 }
 
+header .menu a
+{
+    color: white;
+    height: 2em;
+    padding: 1em;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+header .menu a:hover
+{
+    background-color: #f0f8ff38;
+}
+
 main
 {
     box-sizing: border-box;
     height: 100%;
     width: 80%;
     margin: 2em auto;
+}
+
+table
+{
+    border-collapse: collapse;
+}
+
+table thead
+{
+    background-color: var(--theme-main);
+    color: var(--theme-accent);
+}
+
+table td, table th
+{
+    padding: 0.5em 1.5em;
+}
+
+table tbody tr:nth-child(even)
+{
+    background-color: #e6e6e6;
+}
+
+table tbody tr:nth-child(odd)
+{
+    background-color: #dbdbdb;
 }
