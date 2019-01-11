@@ -1,16 +1,18 @@
-Symfony
+# Routes et points d'entrée
 
-FrontOffice
+## Symfony
 
+### FrontOffice
+```
 /
 /{user}
 /{user}/trips/list
 /{user}/trips/create
 /{user}/trips/edit/{id}
 /{user}/edit
-
-BackOffice
-
+```
+### BackOffice
+```
 /admindep/
 		/stats
 		/user/add/
@@ -31,11 +33,12 @@ BackOffice
 		/deplacement/{id}/read/{deplacement}
 		/deplacement/{id}/list/
 		/deplacement/{id}/edit/{deplacement}
-
-WebService
-
+```
+## WebService
+```
 /api/
 	/trips/
 	/trips/{user}
 	/trips/{user}/{year}/{month}
 	/user/{user}
+```
