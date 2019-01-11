@@ -13,7 +13,7 @@ class DeplacementJourType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nbKm')->add('montant')->add('jour')->add('date')->add('created')->add('updated')->add('deplacement')->add('typeDeplacement')        ;
+        $builder->add('nbKm')->add('montant')->add('jour')->add('date')->add('deplacement')->add('typeDeplacement')        ;
     }
     
     /**
