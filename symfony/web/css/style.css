@@ -6,3 +6,7 @@
 @import url('css/main.css');
 @import url('css/material-button.css');
 @import url('css/material-icons.css');
+
+h1 {
+	color: red;
+}
