@@ -29,7 +29,7 @@ class DefaultController extends Controller
 									Response::HTTP_OK,
 									array(
 										'content-type' => 'application/json',
-										'access-control­-allow­-origin' => '*'
+										'access-control-allow-origin' => '*'
 										)
 									);
 
