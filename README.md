@@ -1,6 +1,4 @@
-cccp-kolkhoze-manager
-=====================
+# Projet Framework CIR3 2018-2019
 
-A Symfony project created on October 2, 2018, 1:52 pm.
+*Gwenolé Leroy-Ferrec, Mathias Cabioch-Delalande*
 
-![Staline](http://www.larousse.fr/encyclopedie/data/images/1315441-Staline.jpg)
