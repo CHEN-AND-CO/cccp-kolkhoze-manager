@@ -62,10 +62,25 @@
 							<tbody>
 								{% for km_month in km_months %}
 									<tr>
-										{% for km_mont in km_month %}
-											<td>{{ km_mont.nom }} {{ km_mont.prenom }}</td>
-											<td>{{ km_mont.0 }}</td>
-										{% endfor %}
+										{% if not km_month is empty %}
+											<td>{{ km_month[0].nom }} {{ km_month[0].prenom }}</td>
+											{% for month in months %}
+												{% set index = loop.index %}
+												{% set monthsetted = false %}
+
+												{% for km_mont in km_month %}
+													{% set month = km_mont.mois %}
+													{% if index == month %}
+														<td>{{ km_mont.somme }}</td>
+														{% set monthsetted = true %}
+													{% endif %}
+												{% endfor %}
+
+												{% if not monthsetted %}
+													<td></td>
+												{% endif %}
+											{% endfor %}
+										{% endif %}
 									</tr>
 								{% endfor %}
 							</tbody>
