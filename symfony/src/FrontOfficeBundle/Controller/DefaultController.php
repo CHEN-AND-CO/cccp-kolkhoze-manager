@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Controller principal du FrontOffice
+ * @author	Mathias C-D & Gwenolé Leroy-Ferrec
+ * @version	1.0.0
+ */
+
 namespace FrontOfficeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
