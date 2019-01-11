@@ -15,14 +15,14 @@ class __TwigTemplate_ed9e7645ebce1d71f9d6e0268c87135ef65ac39ab589916abcac68862bc
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_f06ed109a0d97f0b2149bfa10751aba07b740aceabd11930cb998b3b1f759ee0 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_f06ed109a0d97f0b2149bfa10751aba07b740aceabd11930cb998b3b1f759ee0->enter($__internal_f06ed109a0d97f0b2149bfa10751aba07b740aceabd11930cb998b3b1f759ee0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "WebServiceBundle:Default:index.html.twig"));
+        $__internal_7e57f919430b665c0e6bbceca12ad403f16eeb731c51482d1535f2df63c3712a = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_7e57f919430b665c0e6bbceca12ad403f16eeb731c51482d1535f2df63c3712a->enter($__internal_7e57f919430b665c0e6bbceca12ad403f16eeb731c51482d1535f2df63c3712a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "WebServiceBundle:Default:index.html.twig"));
 
         // line 1
         echo "Hello World!
 ";
         
-        $__internal_f06ed109a0d97f0b2149bfa10751aba07b740aceabd11930cb998b3b1f759ee0->leave($__internal_f06ed109a0d97f0b2149bfa10751aba07b740aceabd11930cb998b3b1f759ee0_prof);
+        $__internal_7e57f919430b665c0e6bbceca12ad403f16eeb731c51482d1535f2df63c3712a->leave($__internal_7e57f919430b665c0e6bbceca12ad403f16eeb731c51482d1535f2df63c3712a_prof);
 
     }
 
