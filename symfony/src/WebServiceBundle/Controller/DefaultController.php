@@ -23,24 +23,18 @@ class DefaultController extends Controller
 
 		$trips = $em->getRepository('BackOfficeBundle:Deplacement')->findAllApi();
 
-		if(1){
-			$answer = new Response(
-									'Content',
-									Response::HTTP_OK,
-									array(
-										'content-type' => 'application/json',
-										'access-control-allow-origin' => '*'
-										)
-									);
+		$answer = new Response(
+								'Content',
+								Response::HTTP_OK,
+								array(
+									'content-type' => 'application/json',
+									'access-control-allow-origin' => '*'
+									)
+								);
 
-			$answer->setContent(json_encode($trips));
+		$answer->setContent(json_encode($trips));
 
-			return $answer;
-		} else {
-			return new JsonResponse(array(
-				$trips
-			));
-		}
+		return $answer;
 	}
 
 	public function TripsUserApiAction(User $user){
@@ -67,11 +61,11 @@ class DefaultController extends Controller
 								Response::HTTP_OK,
 								array(
 									'content-type' => 'application/json',
-									'Access­Control­Allow­Origin' => '*'
+									'access-control-allow-origin' => '*'
 									)
 								);
 
-		$answer->setContent(json_encode($trips));
+		$answer->setContent(json_encode($users));
 
 		return $answer;
 		/*return new JsonResponse(array(
