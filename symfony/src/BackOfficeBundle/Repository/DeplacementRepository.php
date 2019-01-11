@@ -10,5 +10,23 @@ namespace BackOfficeBundle\Repository;
  */
 class DeplacementRepository extends \Doctrine\ORM\EntityRepository
 {
-	
+/************************************************* API *************************************************/
+
+	public function findAllApi(){
+		return $this->getEntityManager()
+					->createQueryBuilder()
+					->select("u.id AS uid, dj.id AS tid, d.annee AS year, d.mois AS month, d.dateValidation AS valid_date, d.validation AS validated, td.typeDeplacement AS type, dj.")
+
+					->from("BackOfficeBundle:User", "u")
+					->from("BackOfficeBundle:Societe", "so")
+					->from("BackOfficeBundle:Service", "se")
+					->from("BackOfficeBundle:Deplacement", "d")
+					->from("BackOfficeBundle:TypeDeplacement", "td")
+					->from("BackOfficeBundle:DeplacementJour", "dj")
+
+					->where("IDENTITY(dj.typeDeplacement) = td.id AND IDENTITY(d.user) = u.id")
+
+					->getQuery()
+					->getResult(\Doctrine\ORM\Query::HYDRATE_ARRAY);
+	}
 }

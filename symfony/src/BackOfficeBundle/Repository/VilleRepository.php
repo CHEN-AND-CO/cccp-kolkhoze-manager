@@ -10,5 +10,16 @@ namespace BackOfficeBundle\Repository;
  */
 class VilleRepository extends \Doctrine\ORM\EntityRepository
 {
-	
+	public function getNbUsersPerCity() {
+		return $this->getEntityManager()
+					->createQueryBuilder()
+					->select('v.ville, COUNT(u.id) AS nb')
+					->from('BackOfficeBundle:User', 'u')
+					->from('BackOfficeBundle:Ville', 'v')
+					->where('IDENTITY(u.ville) = v.id')
+					->groupBy("u.ville")
+
+					->getQuery()
+					->getResult();
+	}
 }
