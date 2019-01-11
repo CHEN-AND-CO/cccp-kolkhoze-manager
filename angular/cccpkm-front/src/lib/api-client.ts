@@ -1,7 +1,7 @@
 import { Injectable, NgModule } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const api_uri = 'angular.dev.local/api';
+const api_uri = 'http://symfony.frm-project.isen/api';
 
 
 
@@ -11,17 +11,25 @@ export interface User {
     lastname: string,   //User last name
     address: string,    //User address
     distance: number    //Distance from user to workplace
+    company: string,
+    service: string
 }
 
 export interface Trip {
     tid: number,        //Trip ID
     uid: number,        //User ID of the user this trip belongs to
-    date: Date,         //Date at which the trip was made
-    valid_date: Date,   //Date of validation
+    date: WeirdDate,         //Date at which the trip was made
+    valid_date: WeirdDate,   //Date of validation
     validated: boolean, //Is the trip validated
     type: string,       //Type of trip
     distance: number,   //Distance covered
     amount: number      //Amound refunded for the trip
+}
+
+export interface WeirdDate {
+    date: string,
+    timezone_type: number,
+    timezone: string
 }
 
 @Injectable()
