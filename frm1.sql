@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1:3306
--- Généré le :  Ven 11 Janvier 2019 à 10:38
+-- Généré le :  Ven 11 Janvier 2019 à 14:59
 -- Version du serveur :  5.7.24-0ubuntu0.16.04.1
 -- Version de PHP :  7.0.32-0ubuntu0.16.04.1
 
@@ -31,11 +31,11 @@ CREATE TABLE `deplacement` (
   `annee` int(11) DEFAULT NULL,
   `mois` int(11) DEFAULT NULL,
   `date_validation` date DEFAULT NULL,
-  `created` datetime DEFAULT NULL,
-  `updated` datetime DEFAULT NULL,
+  `created` datetime DEFAULT NOW(),
+  `updated` datetime DEFAULT NOW(),
   `user_id` int(11) NOT NULL,
   `user_id1` int(11) DEFAULT NULL,
-  `validation` tinyint(4) DEFAULT NULL
+  `validation` tinyint(4) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -43,7 +43,8 @@ CREATE TABLE `deplacement` (
 --
 
 INSERT INTO `deplacement` (`id`, `annee`, `mois`, `date_validation`, `created`, `updated`, `user_id`, `user_id1`, `validation`) VALUES
-(1, 2018, 1, '2019-01-10', NULL, NULL, 2, 1, 1);
+(1, 2018, 1, '2019-01-10', '2018-01-01 00:00:00', '2018-01-01 00:00:00', 2, 1, 1),
+(2, 2019, 1, NULL, '2019-01-11 11:07:50', '2019-01-11 11:07:50', 4, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -57,8 +58,8 @@ CREATE TABLE `deplacement_jour` (
   `montant` double DEFAULT NULL,
   `jour` int(11) DEFAULT NULL,
   `date` date DEFAULT NULL,
-  `created` datetime DEFAULT NULL,
-  `updated` datetime DEFAULT NULL,
+  `created` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated` datetime DEFAULT CURRENT_TIMESTAMP,
   `type_deplacement_id` int(11) NOT NULL,
   `deplacement_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -68,8 +69,9 @@ CREATE TABLE `deplacement_jour` (
 --
 
 INSERT INTO `deplacement_jour` (`id`, `nb_km`, `montant`, `jour`, `date`, `created`, `updated`, `type_deplacement_id`, `deplacement_id`) VALUES
-(1, 15.6, 7, 3, NULL, NULL, NULL, 1, 1),
-(2, 15.6, 7, 5, NULL, NULL, NULL, 1, 1);
+(1, 15.6, 7, 3, '2018-01-03', '2018-01-03 00:00:00', '2018-01-03 00:00:00', 1, 1),
+(2, 15.6, 7, 5, '2018-01-05', '2018-01-05 00:00:00', '2018-01-05 00:00:00', 1, 1),
+(3, 15.6, 7, 11, '2019-01-11', '2019-01-11 11:10:32', '2019-01-11 11:10:32', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -132,7 +134,7 @@ CREATE TABLE `type_deplacement` (
 --
 
 INSERT INTO `type_deplacement` (`id`, `type_deplacement`, `montant`, `created`, `updated`) VALUES
-(1, 'velo uiquement', 0.49, NULL, NULL);
+(1, 'velo uniquement', 0.49, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -276,12 +278,12 @@ ALTER TABLE `ville`
 -- AUTO_INCREMENT pour la table `deplacement`
 --
 ALTER TABLE `deplacement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `deplacement_jour`
 --
 ALTER TABLE `deplacement_jour`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `service`
 --
