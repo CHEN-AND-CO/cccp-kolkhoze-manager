@@ -301,6 +301,31 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'FrontOfficeBundle\\Controller\\DefaultController::indexAction',  '_route' => 'front_office_homepage',);
         }
 
+        // front_office_user_home
+        if (preg_match('#^/(?P<user>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'front_office_user_home')), array (  '_controller' => 'FrontOfficeBundle\\Controller\\DefaultController::indexUserAction',));
+        }
+
+        // front_office_user_dep_list
+        if (preg_match('#^/(?P<user>[^/]++)/trips/list$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'front_office_user_dep_list')), array (  '_controller' => 'FrontOfficeBundle\\Controller\\DefaultController::tripsUserAction',));
+        }
+
+        // front_office_user_dep_create
+        if (preg_match('#^/(?P<user>[^/]++)/trips/create$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'front_office_user_dep_create')), array (  '_controller' => 'FrontOfficeBundle\\Controller\\DefaultController::tripsCreateUserAction',));
+        }
+
+        // front_office_user_dep_update
+        if (preg_match('#^/(?P<user>[^/]++)/trips/edit/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'front_office_user_dep_update')), array (  '_controller' => 'FrontOfficeBundle\\Controller\\DefaultController::tripsUpdateUserAction',));
+        }
+
+        // front_office_user_update
+        if (preg_match('#^/(?P<user>[^/]++)/edit$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'front_office_user_update')), array (  '_controller' => 'FrontOfficeBundle\\Controller\\DefaultController::updateUserAction',));
+        }
+
         // homepage
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

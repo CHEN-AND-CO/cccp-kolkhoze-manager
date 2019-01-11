@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{% block title %}{% endblock %}</title>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/x-icon" href="{{ asset('./favicon.ico') }}" />
+
+		<link rel="stylesheet/css" type="text/css" media="all" href="{{ asset('./css/style.css') }}" />
+		{% block styles %}{% endblock %}
+
+		{% block scripts %}{% endblock %}
+
+		{% block head %}{% endblock %}
+	</head>
+	<body>
+		<header>
+			<div>
+				{% if not user is defined %}
+					<a href="{{ path('front_office_homepage') }}">Home</a>
+					<a href="{{ path('front_office_user_home', {'user':'2'}) }}">Julien Rambert Home</a>
+				{% else %}
+					<a href="{{ path('front_office_user_home', {'user':'2'}) }}">Home</a>
+					<a href="{{ path('front_office_user_dep_list', {'user':'2'}) }}">Liste des déplacements</a>
+					<a href="{{ path('front_office_user_dep_create', {'user':'2'}) }}">Ajouter un déplacement</a>
+					<a href="{{ path('front_office_user_update', {'user':'2'}) }}">Modifier le profil</a>
+					<a href="{{ path('front_office_homepage') }}">Déconnexion</a>
+				{% endif %}
+				
+			</div>
+			{% if user is defined %}
+				<h1>Bonjour {{ user }}</h1>
+			{% endif %}
+			<div>{% block header %}{% endblock %}</div>
+		</header>
+		<main>{% block body %}{% endblock %}</main>
+		<footer>{% block footer %}{% endblock %}</footer>
+	</body>
+</html>
