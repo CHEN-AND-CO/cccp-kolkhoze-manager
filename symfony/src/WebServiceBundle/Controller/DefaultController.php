@@ -28,7 +28,13 @@ class DefaultController extends Controller
 	}
 
 	public function TripsUserApiAction(User $user){
-		
+		$em = $this->getDoctrine()->getManager();
+
+		$trips = $em->getRepository('BackOfficeBundle:Deplacement')->findByUserApi($user->getId());
+
+		return new JsonResponse(array(
+			$trips
+		));
 	}
 
 	public function TripsUserDateApiAction(User $user, $year, $month){
