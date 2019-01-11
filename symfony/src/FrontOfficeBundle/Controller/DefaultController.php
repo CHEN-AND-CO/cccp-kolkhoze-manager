@@ -16,6 +16,10 @@ use Symfony\Component\Validator\Constraints\DateTime;
 
 use BackOfficeBundle\Entity\User;
 use BackOfficeBundle\Form\UserType;
+use BackOfficeBundle\Entity\DeplacementJour;
+use BackOfficeBundle\Form\DeplacementJourType;
+
+
 
 class DefaultController extends Controller
 {
