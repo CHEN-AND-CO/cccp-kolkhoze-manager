@@ -1,11 +1,9 @@
 /phpunit.xml
 /symfony/var/*
-!/var/cache
 /symfony/var/cache/*
 /symfony/var/cache
 symfony/var/cache/*
 symfony/var/cache
-!var/cache/.gitkeep
 !var/logs/.gitkeep
 !var/sessions/.gitkeep
 !var/SymfonyRequirements.php
