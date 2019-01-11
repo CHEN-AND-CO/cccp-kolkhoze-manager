@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2.1
--- http://www.phpmyadmin.net
+-- version 4.7.2
+-- https://www.phpmyadmin.net/
 --
--- Client :  127.0.0.1:3306
--- Généré le :  Ven 11 Janvier 2019 à 14:59
--- Version du serveur :  5.7.24-0ubuntu0.16.04.1
--- Version de PHP :  7.0.32-0ubuntu0.16.04.1
+-- Hôte : localhost
+-- Généré le :  ven. 11 jan. 2019 à 22:58
+-- Version du serveur :  5.5.60-0+deb8u1
+-- Version de PHP :  7.0.32-1~dotdeb+8.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -31,20 +33,22 @@ CREATE TABLE `deplacement` (
   `annee` int(11) DEFAULT NULL,
   `mois` int(11) DEFAULT NULL,
   `date_validation` date DEFAULT NULL,
-  `created` datetime ,
-  `updated` datetime ,
+  `created` datetime NOT NULL,
+  `updated` datetime NOT NULL,
   `user_id` int(11) NOT NULL,
   `user_id1` int(11) DEFAULT NULL,
   `validation` tinyint(4) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `deplacement`
+-- Déchargement des données de la table `deplacement`
 --
 
 INSERT INTO `deplacement` (`id`, `annee`, `mois`, `date_validation`, `created`, `updated`, `user_id`, `user_id1`, `validation`) VALUES
 (1, 2018, 1, '2019-01-10', '2018-01-01 00:00:00', '2018-01-01 00:00:00', 2, 1, 1),
-(2, 2019, 1, NULL, '2019-01-11 11:07:50', '2019-01-11 11:07:50', 4, NULL, 0);
+(2, 2019, 1, NULL, '2019-01-11 11:07:50', '2019-01-11 11:07:50', 4, NULL, 0),
+(3, 2019, 1, NULL, '2019-01-11 00:00:00', '2019-01-11 00:00:00', 2, NULL, 0),
+(4, 2019, 2, NULL, '2019-01-11 00:00:00', '2019-01-11 00:00:00', 2, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -58,20 +62,22 @@ CREATE TABLE `deplacement_jour` (
   `montant` double DEFAULT NULL,
   `jour` int(11) DEFAULT NULL,
   `date` date DEFAULT NULL,
-  `created` datetime ,
-  `updated` datetime ,
+  `created` datetime NOT NULL,
+  `updated` datetime NOT NULL,
   `type_deplacement_id` int(11) NOT NULL,
   `deplacement_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `deplacement_jour`
+-- Déchargement des données de la table `deplacement_jour`
 --
 
 INSERT INTO `deplacement_jour` (`id`, `nb_km`, `montant`, `jour`, `date`, `created`, `updated`, `type_deplacement_id`, `deplacement_id`) VALUES
 (1, 15.6, 7, 3, '2018-01-03', '2018-01-03 00:00:00', '2018-01-03 00:00:00', 1, 1),
 (2, 15.6, 7, 5, '2018-01-05', '2018-01-05 00:00:00', '2018-01-05 00:00:00', 1, 1),
-(3, 15.6, 7, 11, '2019-01-11', '2019-01-11 11:10:32', '2019-01-11 11:10:32', 1, 2);
+(3, 15.6, 7, 11, '2019-01-11', '2019-01-11 11:10:32', '2019-01-11 11:10:32', 1, 2),
+(4, 10, 5, 10, '2019-01-10', '2019-01-11 00:00:00', '2019-01-11 00:00:00', 1, 3),
+(5, 15.6, 7, 11, '2019-02-11', '2019-02-11 11:10:32', '2019-02-11 11:10:32', 1, 4);
 
 -- --------------------------------------------------------
 
@@ -85,7 +91,7 @@ CREATE TABLE `service` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `service`
+-- Déchargement des données de la table `service`
 --
 
 INSERT INTO `service` (`id`, `service`) VALUES
@@ -106,7 +112,7 @@ CREATE TABLE `societe` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `societe`
+-- Déchargement des données de la table `societe`
 --
 
 INSERT INTO `societe` (`id`, `societe`, `adresse`, `ville_id`) VALUES
@@ -130,7 +136,7 @@ CREATE TABLE `type_deplacement` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `type_deplacement`
+-- Déchargement des données de la table `type_deplacement`
 --
 
 INSERT INTO `type_deplacement` (`id`, `type_deplacement`, `montant`, `created`, `updated`) VALUES
@@ -148,7 +154,7 @@ CREATE TABLE `type_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `type_user`
+-- Déchargement des données de la table `type_user`
 --
 
 INSERT INTO `type_user` (`id`, `type_user`) VALUES
@@ -176,7 +182,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `user`
+-- Déchargement des données de la table `user`
 --
 
 INSERT INTO `user` (`id`, `nom`, `prenom`, `adresse`, `distance_init`, `created`, `updated`, `type_user_id`, `societe_id`, `service_id`, `ville_id`) VALUES
@@ -197,7 +203,7 @@ CREATE TABLE `ville` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `ville`
+-- Déchargement des données de la table `ville`
 --
 
 INSERT INTO `ville` (`id`, `ville`, `cp`) VALUES
@@ -210,7 +216,7 @@ INSERT INTO `ville` (`id`, `ville`, `cp`) VALUES
 (7, 'toulon', '83000');
 
 --
--- Index pour les tables exportées
+-- Index pour les tables déchargées
 --
 
 --
@@ -271,19 +277,19 @@ ALTER TABLE `ville`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT pour les tables exportées
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
 -- AUTO_INCREMENT pour la table `deplacement`
 --
 ALTER TABLE `deplacement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `deplacement_jour`
 --
 ALTER TABLE `deplacement_jour`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `service`
 --
@@ -315,7 +321,7 @@ ALTER TABLE `user`
 ALTER TABLE `ville`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
--- Contraintes pour les tables exportées
+-- Contraintes pour les tables déchargées
 --
 
 --
@@ -346,6 +352,7 @@ ALTER TABLE `user`
   ADD CONSTRAINT `fk_user_societe1` FOREIGN KEY (`societe_id`) REFERENCES `societe` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_user_type_user` FOREIGN KEY (`type_user_id`) REFERENCES `type_user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_user_ville1` FOREIGN KEY (`ville_id`) REFERENCES `ville` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

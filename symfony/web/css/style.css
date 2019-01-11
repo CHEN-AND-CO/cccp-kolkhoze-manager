@@ -2,7 +2,18 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+<<<<<<< HEAD
+@import url('css/themedefs.css');
+@import url('css/main.css');
+@import url('css/material-button.css');
+@import url('css/material-icons.css');
+
+h1 {
+	color: red;
+}
+=======
 @import url('theme/themedefs.css');
 @import url('theme/main.css');
 @import url('theme/material-button.css');
 @import url('theme/material-icons.css');
+>>>>>>> 0fc308f68fe6d200318abc8d4655475b6b256424
