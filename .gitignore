@@ -22,3 +22,5 @@ symfony/var/cache/dev
 symfony/var/cache/dev
 symfony/var/cache/dev
 #WILL YOU FUCKING UNDERSTAND TO IGNORE THIS DAMN CACHE FUCKING GIT TARD
+symfony/var/cache/dev/classes.php
+symfony/var/logs/dev.log
