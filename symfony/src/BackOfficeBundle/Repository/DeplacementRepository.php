@@ -10,6 +10,23 @@ namespace BackOfficeBundle\Repository;
  */
 class DeplacementRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function findByUser($user){
+		return $this->getEntityManager()
+					->createQueryBuilder()
+					->select("dj.date AS date, d.validation AS validated, td.typeDeplacement AS type, dj.nbKm AS distance, dj.montant AS amount")
+
+					->from("BackOfficeBundle:User", "u")
+					->from("BackOfficeBundle:Deplacement", "d")
+					->from("BackOfficeBundle:TypeDeplacement", "td")
+					->from("BackOfficeBundle:DeplacementJour", "dj")
+
+					->where("IDENTITY(dj.deplacement) = d.id AND IDENTITY(dj.typeDeplacement) = td.id AND IDENTITY(d.user) = u.id AND u.id = :user")
+					->setParameter("user", $user)
+
+					->getQuery()
+					->getResult(\Doctrine\ORM\Query::HYDRATE_ARRAY);
+	}
+
 /************************************************* API *************************************************/
 
 	public function findAllApi(){
