@@ -29,6 +29,7 @@
 				<th>Type</th>
 				<th>Distance</th>
 				<th>Montant</th>
+				<th>Action</th>
 			</thead>
 			<tbody>
 				{% for trip in trips %}
@@ -37,6 +38,13 @@
 						<td>{{ trip.type }}</td>
 						<td>{{ trip.distance }}</td>
 						<td>{{ trip.amount }}</td>
+						<td>
+							{% if trip.validated %}
+							<a href="edit/{{ trip.id }}">Edit</a>
+							{% else %}
+								-
+							{% endif %}
+						</td>
 					</tr>
 				{% endfor %}
 			</tbody>

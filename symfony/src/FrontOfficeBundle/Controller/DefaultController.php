@@ -38,7 +38,7 @@ class DefaultController extends Controller
 	public function tripsCreateUserAction(User $user){
 		$em = $this->get("doctrine")->getManager();
 
-		
+		//here
 
 		return $this->render('FrontOfficeBundle:Default:trips_create_user.html.twig', array(
 			"user" => $user
@@ -48,7 +48,7 @@ class DefaultController extends Controller
 	public function tripsUpdateUserAction(User $user, DeplacementJour $id){
 		$em = $this->get("doctrine")->getManager();
 
-		
+		//here
 
 		return $this->render('FrontOfficeBundle:Default:trips_update_user.html.twig', array(
 			"user" => $user
