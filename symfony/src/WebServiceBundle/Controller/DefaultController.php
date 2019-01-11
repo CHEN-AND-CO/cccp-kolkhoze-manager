@@ -23,13 +23,13 @@ class DefaultController extends Controller
 
 		$trips = $em->getRepository('BackOfficeBundle:Deplacement')->findAllApi();
 
-		if(0){
+		if(1){
 			$answer = new Response(
 									'Content',
 									Response::HTTP_OK,
 									array(
 										'content-type' => 'application/json',
-										'Access­Control­Allow­Origin' => '*'
+										'access-control­-allow­-origin' => '*'
 										)
 									);
 
