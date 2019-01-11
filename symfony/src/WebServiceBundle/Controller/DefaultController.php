@@ -27,8 +27,8 @@ class DefaultController extends Controller
 								'Content',
 								Response::HTTP_OK,
 								array(
-									'content-type' => 'application/json',
-									'access-control-allow-origin' => '*'
+									'Content-Type' => 'application/json',
+									'Access-Control-Allow-Origin' => '*'
 									)
 								);
 
@@ -60,8 +60,8 @@ class DefaultController extends Controller
 								'Content',
 								Response::HTTP_OK,
 								array(
-									'content-type' => 'application/json',
-									'access-control-allow-origin' => '*'
+									'Content-Type' => 'application/json',
+									'Access-Control-Allow-Origin' => '*'
 									)
 								);
 
