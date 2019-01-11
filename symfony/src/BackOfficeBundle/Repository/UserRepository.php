@@ -51,9 +51,8 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
 					->from("BackOfficeBundle:User", "u")
 					->from("BackOfficeBundle:Societe", "so")
 					->from("BackOfficeBundle:Service", "se")
-					->from("BackOfficeBundle:Deplacement", "d")
 
-					->where(":user = u.id AND IDENTITY(u.service) = se.id AND IDENTITY(u.societe) = so.id")
+					->where("u.id = :user AND IDENTITY(u.service) = se.id AND IDENTITY(u.societe) = so.id")
 					->setParameter("user", $id)
 
 					->getQuery()

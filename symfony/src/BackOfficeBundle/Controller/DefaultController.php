@@ -30,12 +30,27 @@ class DefaultController extends Controller
 			$i++;
 		}
 
+		$months = array(
+			"Janvier",
+			"Février",
+			"Mars",
+			"Avril",
+			"Mai",
+			"Juin",
+			"Juillet",
+			"Août",
+			"Septembre",
+			"Octobre",
+			"Novembre",
+			"Décembre"
+		);
+
 		return $this->render('BackOfficeBundle:Default:stats.html.twig', array(
 			"city_users" => $nbUsersPerCity,
 			"societe_kms" => $kmPerSociety,
 			"societe_users" => $nbUsersPerSociety,
 			"km_months" => $kmPerMonth,
-			"testu" => $users
+			"months" => $months
 		));
 	}
 }
