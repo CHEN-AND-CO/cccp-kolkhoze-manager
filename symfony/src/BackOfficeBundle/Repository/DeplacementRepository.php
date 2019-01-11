@@ -19,7 +19,7 @@ class DeplacementRepository extends \Doctrine\ORM\EntityRepository
 	public function findByUser($user){
 		return $this->getEntityManager()
 					->createQueryBuilder()
-					->select("dj.date AS date, d.validation AS validated, td.typeDeplacement AS type, dj.nbKm AS distance, dj.montant AS amount")
+					->select("dj.id AS id, dj.date AS date, d.validation AS validated, td.typeDeplacement AS type, dj.nbKm AS distance, dj.montant AS amount")
 
 					->from("BackOfficeBundle:User", "u")
 					->from("BackOfficeBundle:Deplacement", "d")
