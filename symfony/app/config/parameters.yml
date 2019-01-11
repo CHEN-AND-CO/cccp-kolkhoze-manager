@@ -1,6 +1,6 @@
 # This file is auto-generated during the composer install
 parameters:
-    database_host: http://prjsymf.cir3-frm-smf-ang-45/
+    database_host: 127.0.0.1
     database_port: null
     database_name: frm1
     database_user: etdfrm1
