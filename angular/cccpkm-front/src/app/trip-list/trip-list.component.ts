@@ -16,20 +16,12 @@ export class TripListComponent implements OnInit {
 
   constructor(private api: ApiClient, private route: ActivatedRoute) { }
   
-  async ngOnInit() {
-    console.log("Aloha");
-
-    // this.route.paramMap.subscribe( params => {
-    //   this.uid = parseInt( params.get('uid') );
-    //   console.log(this.uid);
-    // });
-
+  ngOnInit() {
+    
     this.uid = this.route.snapshot.params.uid;
-    console.log(this.uid);
-    console.log("Fini")
 
-    this.api.getTrips()
-            .subscribe( (data: Trip[]) => this.trips = { ...data });
+    this.api.getTrips(this.uid)
+            .subscribe( (data: Trip[]) => this.trips = data );
 
     this.api.getUser(this.uid)
             .subscribe( (data: User) => this.user = { ...data });

@@ -16,6 +16,8 @@ export class AppHomeComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => this.username = params.get('uid'));
+
+    
   }
 
 }
