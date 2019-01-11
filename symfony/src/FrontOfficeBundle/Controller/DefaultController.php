@@ -51,10 +51,27 @@ class DefaultController extends Controller
 		));
 	}
 
-	public function tripsUpdateUserAction(User $user, DeplacementJour $id){
-		$em = $this->get("doctrine")->getManager();
+	public function tripsUpdateUserAction(Request $request, User $user, DeplacementJour $id){
+		$form = $this->createForm(DeplacementJourType::class, $id)
+				->add('save', SubmitType::class, array('label' => 'Modifier le déplacement'));
 
-		//here
+		$form->handleRequest($request);
+
+		if($form->isSubmitted() && $form->isValid()){
+			$id = $form->getData();
+
+			$id->setUpdated(new \DateTime());
+
+			$em = $this->getDoctrine()->getManager();
+
+			// tells Doctrine you want to (eventually) save the Product (no queries yet)
+			$em->persist($id);
+
+			// actually executes the queries (i.e. the INSERT query)
+			$em->flush();
+
+			return $this->redirectToRoute('back_office_user_list');
+		}
 
 		return $this->render('FrontOfficeBundle:Default:trips_update_user.html.twig', array(
 			"user" => $user
