@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Controller principal du WebService
+ * @author	Mathias C-D
+ * @version	1.0.0
+ */
+
 namespace WebServiceBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

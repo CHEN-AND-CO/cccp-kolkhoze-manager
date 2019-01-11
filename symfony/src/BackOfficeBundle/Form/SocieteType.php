@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Formulaire de Société
+ * @author	Mathias C-D
+ * @version	1.0.0
+ */
+
 namespace BackOfficeBundle\Form;
 
 use Symfony\Component\Form\AbstractType;

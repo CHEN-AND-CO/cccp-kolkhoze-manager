@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Controller de User CRUD
+ * @author	Mathias C-D
+ * @version	1.0.0
+ */
+
 namespace BackOfficeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
