@@ -10,6 +10,7 @@ import { ErrorComponent } from './error/error.component';
 const routes: Routes = [
   { path: 'home', component: AppHomeComponent },
   { path: 'trips/:uid/edit/:tid', component: TripEditComponent },
+  { path: 'trips/:uid/:year/:month', component: TripListComponent },
   { path: 'trips/:uid', component: TripListComponent },
   { path: 'trips', component: TripListComponent },
   { path: 'u/:uid/new', component: TripEditComponent },

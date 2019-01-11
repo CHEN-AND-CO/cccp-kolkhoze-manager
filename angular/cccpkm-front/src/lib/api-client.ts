@@ -37,12 +37,18 @@ export class ApiClient {
 
     constructor (private http: HttpClient) {}
 
-    getUser(uid: any) {
+    getUser(uid: number) {
         return this.http.get<User>(api_uri + '/user/' + uid);
     }
 
-    getTrips(uid = null) {
+    getTrips(uid?: number) {
+        console.log('UID : ' + uid);
+        
         if (uid) return this.http.get<Array<Trip>>(api_uri + '/trips/' + uid);
-        else return this.http.get<Array<Trip>>(api_uri + '/trips');
+        else return this.http.get<Array<Trip>>(api_uri + '/trips/');
+    }
+
+    getTripsByDate(uid: number, month: number, year: number) {
+        return this.http.get<Array<Trip>>(api_uri + '/trips/' + uid + '/' + year + '/' + month);
     }
 }
