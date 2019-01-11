@@ -10,10 +10,12 @@ export class AppHomeComponent implements OnInit {
 
   username: string;
   
-  constructor(private route: ActivatedRoute ) { }
+  constructor(private route: ActivatedRoute ) {
+    this.username = '[void]';
+  }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => this.username = params.get('uname'));
+    this.route.paramMap.subscribe(params => this.username = params.get('uid'));
   }
 
 }

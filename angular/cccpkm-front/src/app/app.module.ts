@@ -8,6 +8,8 @@ import { TripListComponent } from './trip-list/trip-list.component';
 import { TripEditComponent } from './trip-edit/trip-edit.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { ErrorComponent } from './error/error.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { ErrorComponent } from './error/error.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
