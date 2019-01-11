@@ -1,0 +1,14 @@
+html, body
+{
+    width: 100vw;
+    min-height: 100vh;
+
+    padding: 0;
+    margin: 0;
+
+    font-family: var(--theme-font);
+    font-size: 14px;
+
+    background-color: var(--theme-back);
+    color: var(--theme-text);
+}

@@ -1,0 +1,9 @@
+:root
+{
+    --theme-main: #c72121;
+    --theme-back: #eeeeee;
+    --theme-text: #868686;
+    --theme-accent: white;
+
+    --theme-font: "Roboto", "Open Sans", "Verdana", "Helvetica", Arial, serif;
+}
