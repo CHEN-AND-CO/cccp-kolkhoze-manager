@@ -5,10 +5,16 @@
 		<title>{% block title %}{% endblock %}</title>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/x-icon" href="{{ asset('./favicon.ico') }}" />
+		<link rel="stylesheet" href="{{ asset('./css/style.css') }}" />
 
+<<<<<<< HEAD
 		<link rel="stylesheet/css" type="text/css" media="all" href="{{ asset('./css/style.css') }}" />
 		<link rel="stylesheet/css" type="text/css" media="all" href="{{ asset('./css/styles.css') }}" />
 		{% block styles %}{% endblock %}
+=======
+		{% block styles %}
+		{% endblock %}
+>>>>>>> 0fc308f68fe6d200318abc8d4655475b6b256424
 
 		{% block scripts %}{% endblock %}
 
@@ -16,6 +22,7 @@
 	</head>
 	<body>
 		<header>
+			<div>{% block header %}{% endblock %}</div>
 			<div>
 				{% if not user is defined %}
 					<a href="{{ path('front_office_homepage') }}">Home</a>
@@ -32,7 +39,6 @@
 			{% if user is defined %}
 				<h1>Bonjour {{ user }}</h1>
 			{% endif %}
-			<div>{% block header %}{% endblock %}</div>
 		</header>
 		<main>{% block body %}{% endblock %}</main>
 		<footer>{% block footer %}{% endblock %}</footer>
