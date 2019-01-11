@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Controller de déplacements
+ * @author	Mathias C-D
+ * @version	1.0.0
+ */
+
 namespace BackOfficeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

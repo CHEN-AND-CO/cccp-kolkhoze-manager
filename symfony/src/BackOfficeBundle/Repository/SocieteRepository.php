@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Requêtes Société
+ * @author	Mathias C-D
+ * @version	1.0.0
+ */
+
 namespace BackOfficeBundle\Repository;
 
 /**

@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Entité Déplacement
+ * @author	Mathias C-D
+ * @version	1.0.0
+ */
+
 namespace BackOfficeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
