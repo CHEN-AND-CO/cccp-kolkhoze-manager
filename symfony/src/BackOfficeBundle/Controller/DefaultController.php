@@ -4,6 +4,9 @@ namespace BackOfficeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+use BackOfficeBundle\Entity\User;
+use BackOfficeBundle\Entity\Ville;
+
 class DefaultController extends Controller
 {
 	public function indexAction()
@@ -12,8 +15,20 @@ class DefaultController extends Controller
 	}
 
 	public function StatsAction(){
-		
+		$em = $this->get("doctrine")->getManager();
 
-		return $this->render('BackOfficeBundle:Default:stats.html.twig');
+		$nbUsersPerCity = $em->getRepository('BackOfficeBundle:Ville')->getNbUsersPerCity();
+
+		$kmPerSociety = $em->getRepository('BackOfficeBundle:Societe')->getKmPerSociety();
+		$nbUsersPerSociety = $em->getRepository('BackOfficeBundle:Societe')->getNbUsersPerSociety();
+
+		$kmPerMonth = $em->getRepository('BackOfficeBundle:User')->getKmPerMonth(2018);
+
+		return $this->render('BackOfficeBundle:Default:stats.html.twig', array(
+			"city_users" => $nbUsersPerCity,
+			"societe_kms" => $kmPerSociety,
+			"societe_users" => $nbUsersPerSociety,
+			"km_months" => $kmPerMonth
+		));
 	}
 }

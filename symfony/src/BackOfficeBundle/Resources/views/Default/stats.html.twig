@@ -23,8 +23,44 @@
 	{% endblock %}
 
 	{% block body %}
-		<h2>Déplacements</h2>
-		
+		<ul>
+			<li>Nombre d’utilisateurs par ville :
+				<ul>
+					{% for city_user in city_users %}
+						<li>{{ city_user.ville }} : {{ city_user.nb }} utilisateur(s)</li>
+					{% endfor %}
+				</ul>
+			</li>
+			<li>Par société ;
+				<ul>
+					<li>Nombre de km total :
+						<ul>
+							{% for societe_km in societe_kms %}
+								<li>{{ societe_km.societe }} : {{ societe_km.somme }} km</li>
+							{% endfor %}
+						</ul>
+					</li>
+					<li>Nombre d'utilisateurs :
+						<ul>
+							{% for societe_user in societe_users %}
+								<li>{{ societe_user.societe }} : {{ societe_user.nb }} utilisateur(s)</li>
+							{% endfor %}
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>Par société ;
+				<ul>
+					<li>Nombre de km par mois et par utilisateur (sur l’année en cours) :
+						<ul>
+							{% for km_month in km_months %}
+								<li>{{ km_month|join('|') }} :  utilisateur(s)</li>
+							{% endfor %}
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
 	{% endblock %}
 
 	{% block footer %}

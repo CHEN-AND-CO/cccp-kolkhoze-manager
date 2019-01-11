@@ -111,26 +111,31 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     return array (  '_controller' => 'WebServiceBundle\\Controller\\DefaultController::indexAction',  '_route' => 'web_service_homepage',);
                 }
 
-                if (0 === strpos($pathinfo, '/api/getdep')) {
+                if (0 === strpos($pathinfo, '/api/trips')) {
                     // web_service_getdep
-                    if (rtrim($pathinfo, '/') === '/api/getdep') {
+                    if (rtrim($pathinfo, '/') === '/api/trips') {
                         if (substr($pathinfo, -1) !== '/') {
                             return $this->redirect($pathinfo.'/', 'web_service_getdep');
                         }
 
-                        return array (  '_controller' => 'WebServiceBundle\\Controller\\DefaultController::getdepApiAction',  '_route' => 'web_service_getdep',);
+                        return array (  '_controller' => 'WebServiceBundle\\Controller\\DefaultController::TripsApiAction',  '_route' => 'web_service_getdep',);
                     }
 
                     // web_service_getdep_user
-                    if (preg_match('#^/api/getdep/(?P<user>[^/]++)$#s', $pathinfo, $matches)) {
-                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'web_service_getdep_user')), array (  '_controller' => 'WebServiceBundle\\Controller\\DefaultController::getdepUserApiAction',));
+                    if (preg_match('#^/api/trips/(?P<user>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'web_service_getdep_user')), array (  '_controller' => 'WebServiceBundle\\Controller\\DefaultController::TripsUserApiAction',));
                     }
 
                     // web_service_getdep_user_date
-                    if (preg_match('#^/api/getdep/(?P<user>[^/]++)/(?P<year>[^/]++)/(?P<month>[^/]++)$#s', $pathinfo, $matches)) {
-                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'web_service_getdep_user_date')), array (  '_controller' => 'WebServiceBundle\\Controller\\DefaultController::getdepUserDateApiAction',));
+                    if (preg_match('#^/api/trips/(?P<user>[^/]++)/(?P<year>[^/]++)/(?P<month>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'web_service_getdep_user_date')), array (  '_controller' => 'WebServiceBundle\\Controller\\DefaultController::TripsUserDateApiAction',));
                     }
 
+                }
+
+                // web_service_getuser
+                if (0 === strpos($pathinfo, '/api/user') && preg_match('#^/api/user/(?P<user>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'web_service_getuser')), array (  '_controller' => 'WebServiceBundle\\Controller\\DefaultController::UserApiAction',));
                 }
 
             }

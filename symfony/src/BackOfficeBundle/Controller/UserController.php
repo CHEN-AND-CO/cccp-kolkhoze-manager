@@ -98,8 +98,8 @@ class UserController extends Controller
 		if(!isset($_POST["shape"]) || $_POST["shape"] == ""){
 			$users = $repo->findAll();
 		} else {
-			//$users = $em->getRepository('BackOfficeBundle:User')->findAllThatMatchWith($_POST["shape"]);
-			$users = $repo->findAll();
+			$users = $em->getRepository('BackOfficeBundle:User')->findAllThatMatchWith($_POST["shape"]);
+			//$users = $repo->findAll();
 		}
 
 		return $this->render('BackOfficeBundle:User:list.html.twig', array(

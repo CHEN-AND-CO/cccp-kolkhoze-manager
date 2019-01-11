@@ -23,4 +23,39 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
 					->getQuery()
 					->getResult();
 	}
+
+	public function getKmPerMonth($year) {
+		return $this->getEntityManager()
+					->createQueryBuilder()
+
+					->select('u.nom, u.prenom, d.mois, SUM(dj.nbKm) AS somme')
+					->from('BackOfficeBundle:User', 'u')
+					->from('BackOfficeBundle:Deplacement', 'd')
+					->from('BackOfficeBundle:DeplacementJour', 'dj')
+					->where('IDENTITY(dj.deplacement) = d.id AND IDENTITY(d.user) = u.id AND d.annee = :annee')
+					->setParameter("annee", $year)
+					->groupBy("d.mois", "u.nom", "u.prenom")
+
+					->getQuery()
+					->getResult();
+	}
+
+/************************************************* API *************************************************/
+
+	public function findByIdApi($id){
+		return $this->getEntityManager()
+					->createQueryBuilder()
+					->select("u.id AS uid, u.nom AS firstname, u.prenom AS lastname, u.adresse AS address, u.distanceInit AS distance, se.service AS service, so.societe AS company")
+
+					->from("BackOfficeBundle:User", "u")
+					->from("BackOfficeBundle:Societe", "so")
+					->from("BackOfficeBundle:Service", "se")
+					->from("BackOfficeBundle:Deplacement", "d")
+
+					->where(":user = u.id AND IDENTITY(u.service) = se.id AND IDENTITY(u.societe) = so.id")
+					->setParameter("user", $id)
+
+					->getQuery()
+					->getResult(\Doctrine\ORM\Query::HYDRATE_ARRAY);
+	}
 }
