@@ -1,6 +1,6 @@
 # Web service API et format de données
 
-Format d'entrée POST
+Format d'entrée via requêtes POST
 En sortie : JSON
 
 ## Routes d'API
