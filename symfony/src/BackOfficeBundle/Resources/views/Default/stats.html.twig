@@ -54,9 +54,26 @@
 					<li>Nombre de km par mois et par utilisateur (sur l’année en cours) :
 						<ul>
 							{% for km_month in km_months %}
-								<li>{{ km_month|join('|') }} :  utilisateur(s)</li>
+								{% for km_mont in km_month %}
+									<li>{{ km_mont|join('|') }} :  utilisateur(s)</li>
+								{% endfor %}
 							{% endfor %}
 						</ul>
+						<ul>
+							{% for test in testu %}
+								<li>{{ test }} :  utilisateur(s)</li>
+							{% endfor %}
+						</ul>
+						<table>
+							<thead>
+								<th>Utilisateurs</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
 					</li>
 				</ul>
 			</li>

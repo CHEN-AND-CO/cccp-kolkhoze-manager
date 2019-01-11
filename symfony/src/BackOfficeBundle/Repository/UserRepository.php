@@ -24,7 +24,7 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
 					->getResult();
 	}
 
-	public function getKmPerMonth($year) {
+	public function getKmPerMonth($year, $user) {
 		return $this->getEntityManager()
 					->createQueryBuilder()
 
@@ -32,9 +32,10 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
 					->from('BackOfficeBundle:User', 'u')
 					->from('BackOfficeBundle:Deplacement', 'd')
 					->from('BackOfficeBundle:DeplacementJour', 'dj')
-					->where('IDENTITY(dj.deplacement) = d.id AND IDENTITY(d.user) = u.id AND d.annee = :annee')
+					->where('IDENTITY(dj.deplacement) = d.id AND IDENTITY(d.user) = u.id AND d.annee = :annee AND u.id = :user')
 					->setParameter("annee", $year)
-					->groupBy("d.mois", "u.nom", "u.prenom")
+					->setParameter("user", $user)
+					->groupBy("d.mois")
 
 					->getQuery()
 					->getResult();

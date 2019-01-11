@@ -31,8 +31,8 @@ CREATE TABLE `deplacement` (
   `annee` int(11) DEFAULT NULL,
   `mois` int(11) DEFAULT NULL,
   `date_validation` date DEFAULT NULL,
-  `created` datetime DEFAULT NOW(),
-  `updated` datetime DEFAULT NOW(),
+  `created` datetime ,
+  `updated` datetime ,
   `user_id` int(11) NOT NULL,
   `user_id1` int(11) DEFAULT NULL,
   `validation` tinyint(4) DEFAULT '0'
@@ -58,8 +58,8 @@ CREATE TABLE `deplacement_jour` (
   `montant` double DEFAULT NULL,
   `jour` int(11) DEFAULT NULL,
   `date` date DEFAULT NULL,
-  `created` datetime DEFAULT CURRENT_TIMESTAMP,
-  `updated` datetime DEFAULT CURRENT_TIMESTAMP,
+  `created` datetime ,
+  `updated` datetime ,
   `type_deplacement_id` int(11) NOT NULL,
   `deplacement_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
