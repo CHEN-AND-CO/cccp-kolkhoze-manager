@@ -45,12 +45,33 @@ class DefaultController extends Controller
 		));
 	}
 
-	public function tripsCreateUserAction(User $user){
-		$em = $this->get("doctrine")->getManager();
+	public function tripsCreateUserAction(Request $request, User $user){
+		$trip = new DeplacementJour();
 
-		//here
+		$form = $this->createForm(DeplacementJourType::class, $trip)
+				->add('save', SubmitType::class, array('label' => 'Modifier le déplacement'));
 
-		return $this->render('FrontOfficeBundle:Default:trips_create_user.html.twig', array(
+
+		$form->handleRequest($request);
+
+		if($form->isSubmitted() && $form->isValid()){
+			// $trip = $form->getData();
+
+			$trip->setUpdated(new \DateTime());
+
+			$em = $this->getDoctrine()->getManager();
+
+			// tells Doctrine you want to (eventually) save the Product (no queries yet)
+			$em->persist($trip);
+
+			// actually executes the queries (i.e. the INSERT query)
+			$em->flush($trip);
+
+			return $this->redirectToRoute('front_office_user_dep_list', [ "user" => $user->getId() ]);
+		}
+
+		return $this->render('FrontOfficeBundle:Default:trips_update_user.html.twig', array(
+			"form" => $form->createView(),
 			"user" => $user
 		));
 	}
@@ -74,10 +95,11 @@ class DefaultController extends Controller
 			// actually executes the queries (i.e. the INSERT query)
 			$em->flush();
 
-			return $this->redirectToRoute('back_office_user_list');
+			return $this->redirectToRoute('front_office_user_dep_list', [ "user" => $user->getId() ]);
 		}
 
 		return $this->render('FrontOfficeBundle:Default:trips_update_user.html.twig', array(
+			"form" => $form->createView(),
 			"user" => $user
 		));
 	}
