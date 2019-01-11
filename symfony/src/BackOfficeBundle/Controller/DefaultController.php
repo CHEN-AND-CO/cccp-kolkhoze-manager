@@ -22,13 +22,35 @@ class DefaultController extends Controller
 		$kmPerSociety = $em->getRepository('BackOfficeBundle:Societe')->getKmPerSociety();
 		$nbUsersPerSociety = $em->getRepository('BackOfficeBundle:Societe')->getNbUsersPerSociety();
 
-		$kmPerMonth = $em->getRepository('BackOfficeBundle:User')->getKmPerMonth(2018);
+		$users = $em->getRepository('BackOfficeBundle:User')->findAll();
+
+		$i = 0;
+		foreach($users as $user){
+			$kmPerMonth[$i] = $em->getRepository('BackOfficeBundle:User')->getKmPerMonth(2019, $user->getId());
+			$i++;
+		}
+
+		$months = array(
+			"Janvier",
+			"Février",
+			"Mars",
+			"Avril",
+			"Mai",
+			"Juin",
+			"Juillet",
+			"Août",
+			"Septembre",
+			"Octobre",
+			"Novembre",
+			"Décembre"
+		);
 
 		return $this->render('BackOfficeBundle:Default:stats.html.twig', array(
 			"city_users" => $nbUsersPerCity,
 			"societe_kms" => $kmPerSociety,
 			"societe_users" => $nbUsersPerSociety,
-			"km_months" => $kmPerMonth
+			"km_months" => $kmPerMonth,
+			"months" => $months
 		));
 	}
 }

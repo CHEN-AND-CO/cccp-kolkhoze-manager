@@ -27,17 +27,14 @@ class DefaultController extends Controller
 								'Content',
 								Response::HTTP_OK,
 								array(
-									'content-type' => 'application/json',
-									'Access­Control­Allow­Origin' => '*'
+									'Content-Type' => 'application/json',
+									'Access-Control-Allow-Origin' => '*'
 									)
 								);
 
 		$answer->setContent(json_encode($trips));
 
 		return $answer;
-		/*return new JsonResponse(array(
-			$trips
-		));*/
 	}
 
 	public function TripsUserApiAction(User $user){
@@ -45,13 +42,37 @@ class DefaultController extends Controller
 
 		$trips = $em->getRepository('BackOfficeBundle:Deplacement')->findByUserApi($user->getId());
 
-		return new JsonResponse(array(
-			$trips
-		));
+		$answer = new Response(
+								'Content',
+								Response::HTTP_OK,
+								array(
+									'Content-Type' => 'application/json',
+									'Access-Control-Allow-Origin' => '*'
+									)
+								);
+
+		$answer->setContent(json_encode($trips));
+
+		return $answer;
 	}
 
 	public function TripsUserDateApiAction(User $user, $year, $month){
-		
+		$em = $this->getDoctrine()->getManager();
+
+		$trips = $em->getRepository('BackOfficeBundle:Deplacement')->findByUserYearMonthApi($user->getId(), $year, $month);
+
+		$answer = new Response(
+								'Content',
+								Response::HTTP_OK,
+								array(
+									'Content-Type' => 'application/json',
+									'Access-Control-Allow-Origin' => '*'
+									)
+								);
+
+		$answer->setContent(json_encode($trips));
+
+		return $answer;
 	}
 
 	public function UserApiAction(User $user){
@@ -63,16 +84,13 @@ class DefaultController extends Controller
 								'Content',
 								Response::HTTP_OK,
 								array(
-									'content-type' => 'application/json',
-									'Access­Control­Allow­Origin' => '*'
+									'Content-Type' => 'application/json',
+									'Access-Control-Allow-Origin' => '*'
 									)
 								);
 
-		$answer->setContent(json_encode($trips));
+		$answer->setContent(json_encode($users));
 
 		return $answer;
-		/*return new JsonResponse(array(
-			$users
-		));*/
 	}
 }

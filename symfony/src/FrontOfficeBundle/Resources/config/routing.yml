@@ -1,3 +1,23 @@
 front_office_homepage:
     path:     /
     defaults: { _controller: FrontOfficeBundle:Default:index }
+
+front_office_user_home:
+    path:     /{user}
+    defaults: { _controller: FrontOfficeBundle:Default:indexUser }
+
+front_office_user_dep_list:
+    path:     /{user}/trips/list
+    defaults: { _controller: FrontOfficeBundle:Default:tripsUser }
+
+front_office_user_dep_create:
+    path:     /{user}/trips/create
+    defaults: { _controller: FrontOfficeBundle:Default:tripsCreateUser }
+
+front_office_user_dep_update:
+    path:     /{user}/trips/edit/{id}
+    defaults: { _controller: FrontOfficeBundle:Default:tripsUpdateUser }
+
+front_office_user_update:
+    path:     /{user}/edit
+    defaults: { _controller: FrontOfficeBundle:Default:updateUser }

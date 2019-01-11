@@ -52,11 +52,39 @@
 			<li>Par société ;
 				<ul>
 					<li>Nombre de km par mois et par utilisateur (sur l’année en cours) :
-						<ul>
-							{% for km_month in km_months %}
-								<li>{{ km_month|join('|') }} :  utilisateur(s)</li>
-							{% endfor %}
-						</ul>
+						<table>
+							<thead>
+								<th>Utilisateurs</th>
+								{% for month in months %}
+									<th>{{ month }}</th>
+								{% endfor %}
+							</thead>
+							<tbody>
+								{% for km_month in km_months %}
+									<tr>
+										{% if not km_month is empty %}
+											<td>{{ km_month[0].nom }} {{ km_month[0].prenom }}</td>
+											{% for month in months %}
+												{% set index = loop.index %}
+												{% set monthsetted = false %}
+
+												{% for km_mont in km_month %}
+													{% set month = km_mont.mois %}
+													{% if index == month %}
+														<td>{{ km_mont.somme }}</td>
+														{% set monthsetted = true %}
+													{% endif %}
+												{% endfor %}
+
+												{% if not monthsetted %}
+													<td></td>
+												{% endif %}
+											{% endfor %}
+										{% endif %}
+									</tr>
+								{% endfor %}
+							</tbody>
+						</table>
 					</li>
 				</ul>
 			</li>
