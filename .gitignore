@@ -1,15 +1,7 @@
-/build/
 /phpunit.xml
 /symfony/var/*
-!/var/cache
-/symfony/var/cache/*
 !var/cache/.gitkeep
-!/var/logs
-/symfony/var/logs/*
 !var/logs/.gitkeep
-!/var/sessions
-/symfony/var/sessions/*
 !var/sessions/.gitkeep
 !var/SymfonyRequirements.php
 /symfony/vendor/
-/symfony/web/bundles/
