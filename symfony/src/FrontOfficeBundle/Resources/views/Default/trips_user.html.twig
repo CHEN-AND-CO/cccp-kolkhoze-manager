@@ -20,11 +20,27 @@
 {# Body part #}
 	{% block header %}
 		<h1>FrontOffice Accueil</h1>
-		<h2>Bonjour {{ user }}</h2>
 	{% endblock %}
 
 	{% block body %}
-		
+		<table>
+			<thead>
+				<th>Date</th>
+				<th>Type</th>
+				<th>Distance</th>
+				<th>Montant</th>
+			</thead>
+			<tbody>
+				{% for trip in trips %}
+					<tr>
+						<td>{{ trip.date|date('d/m/Y') }}</td>
+						<td>{{ trip.type }}</td>
+						<td>{{ trip.distance }}</td>
+						<td>{{ trip.amount }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
 	{% endblock %}
 
 	{% block footer %}
