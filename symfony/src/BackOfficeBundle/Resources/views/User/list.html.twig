@@ -20,14 +20,14 @@
 {# Body part #}
 	{% block header %}
 		<a class="material-button light" href="{{ path('back_office_user_create') }}"><i class="material-icons">add_box</i>Ajouter un utilisateur</a>
+		{% endblock %}
+		
+		{% block body %}
+		<h2>Utilisateurs</h2>
 		<form method="post" action="{{ path('back_office_user_list') }}">
 			<input type="text" name="shape" id="shape" />
 			<input type="submit" value="Rechercher" />
 		</form>
-	{% endblock %}
-
-	{% block body %}
-		<h2>Utilisateurs</h2>
 		<table>
 			<tr>
 				<td>Nom</td>
