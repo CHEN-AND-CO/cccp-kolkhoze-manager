@@ -29,11 +29,11 @@
 	{% block body %}
 		<h2>Services</h2>
 		<table>
-			<tr>
-				<td>Service</td>
-				<td>En détails</td>
-				<td>Modifier le service</td>
-			</tr>
+			<thead>
+				<th>Service</th>
+				<th>En détails</th>
+				<th>Modifier le service</th>
+			</thead>
 			{% for obj in objs %}
 				<tr>
 					<td>{{ obj.service }}</td>
