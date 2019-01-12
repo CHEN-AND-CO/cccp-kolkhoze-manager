@@ -16,7 +16,7 @@
 	</head>
 	<body>
 		<header>
-			<div>{% block header %}{% endblock %}</div>
+			{% block header %}{% endblock %}
 			<div class="menu">
 				{% if not user is defined %}
 					<a href="{{ path('front_office_homepage') }}">Home</a>
