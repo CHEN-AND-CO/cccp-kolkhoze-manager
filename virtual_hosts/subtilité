@@ -1,0 +1,3 @@
+Il faut activer le mod rewrite
+
+sudo a2enmod rewrite
