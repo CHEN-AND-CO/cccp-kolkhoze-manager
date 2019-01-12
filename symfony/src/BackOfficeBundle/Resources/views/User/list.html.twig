@@ -29,14 +29,14 @@
 			<input type="submit" value="Rechercher" />
 		</form>
 		<br>
-		
+
 		<table>
-			<tr>
-				<td>Nom</td>
-				<td>Prénom</td>
-				<td>En détails</td>
-				<td>Modifier l'utilisateur</td>
-			</tr>
+			<thead>
+				<th>Nom</th>
+				<th>Prénom</th>
+				<th>En détails</th>
+				<th>Modifier l'utilisateur</th>
+			</thead>
 			{% for obj in objs %}
 				<tr>
 					<td>{{ obj.nom }}</td>
